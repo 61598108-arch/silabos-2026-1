@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+<link rel="stylesheet" type="text/css" href="./lib/style.css">
+<script type="text/javascript" src="./lib/hidebib.js"></script>
+<title>Aprendizaje No Supervisado - EST314</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="aprendizaje no supervisado, clustering, reducción de dimensionalidad, reglas de asociación, PCA, k-means, machine learning" />
+<meta name="description" content="Sílabo del curso de Aprendizaje No Supervisado - Ingeniería Estadística e Informática - UNAP" />
+</head>
+
+<body style="background-color: #060913; margin: 0; padding:0;">
+<div style="padding: 25px;">
+<table width="800" border="0" align="center" cellpadding="20" style="background-color: #fff;">
+<tr>
+<td>
+
+<table width="100%" align="center" border="0" cellpadding="10">
+<tr>
+<td width="70%" style="vertical-align: top; text-align: left;">
+<p style="font-size: 36px;">Aprendizaje No Supervisado</p>
+<p style="font-size: 16px;">
+Ingeniería Estadística e Informática<br>
+Facultad de Ingeniería Estadística e Informática<br>
+Universidad Nacional del Altiplano - Puno
+</p>
+<p style="font-size: 16px;">
+Código: EST314 | Ciclo: VI | Créditos: 4<br>
+Horas: 3 teóricas, 2 prácticas | Total: 5 horas
+</p>
+<p style="font-size: 16px;">
+Prof. Leonid Aleman Gonzales
+</p>
+</td>
+<td width="30%" valign="bottom" align="right"></td>
+</tr>
+
+<tr>
+<td colspan="2">
+<p>
+<a href="#sumilla">Sumilla</a> |
+<a href="#logro">Logro</a> |
+<a href="#contenido">Contenido</a> |
+<a href="#metodologia">Metodología</a> |
+<a href="#evaluacion">Evaluación</a> |
+<a href="#entregables">Entregables</a> |
+<a href="#recursos">Recursos</a> |
+<a href="#bibliografia">Bibliografía</a> |
+<a href="#contacto">Contacto</a>
+</p>
+</td>
+</tr>
+</table>
+
+<hr/>
+
+<heading id="sumilla">Sumilla</heading>
+<p style="text-align: justify">
+El curso de Aprendizaje No Supervisado corresponde al área curricular de estudios de especialidad, es de naturaleza teórico‑práctica y tiene como propósito proponer y aplicar técnicas de preparación, preprocesamiento, reducción de la dimensionalidad, agrupamiento y reglas de asociación sobre conjuntos de datos y sus aplicaciones. Los contenidos se organizan en dos unidades: metodología, preprocesamiento y reducción de dimensionalidad; y técnicas de agrupamiento, reglas de asociación y aplicaciones avanzadas.
+</p>
+
+<hr/>
+
+<heading id="logro">Logro del curso</heading>
+<p style="text-align: justify">
+Al finalizar el curso, el estudiante aplica adecuadamente las técnicas de aprendizaje no supervisado en casos avanzados, demostrando competencia en metodología, reducción de dimensionalidad, agrupamiento y reglas de decisión.
+</p>
+
+<hr/>
+
+<heading id="contenido">Contenido</heading>
+
+<div class="pub">
+<heading>Unidad I: Metodología, preprocesamiento y reducción de dimensionalidad</heading>
+<p><b>Duración:</b> Semanas 1 al 9 (45 horas)</p>
+<p><b>Logro de unidad:</b> Aplica adecuadamente las metodologías, técnicas de preprocesamiento de datos y reducción de dimensionalidad para casos de aplicación.</p>
+
+<ul>
+<li><b>Semana 1:</b> Introducción al aprendizaje automático no supervisado, diferencias con otros tipos.</li>
+<li><b>Semana 2:</b> Metodología de proyectos no supervisados, flujo de trabajo y elementos.</li>
+<li><b>Semana 3:</b> Preprocesamiento, limpieza, transformación y codificación de variables.</li>
+<li><b>Semana 4:</b> Data wrangling e ingeniería de características.</li>
+<li><b>Semana 5:</b> Reducción de dimensionalidad clásica: PCA, SVD, LDA, t‑SNE, UMAP, Isomap, LLE.</li>
+<li><b>Semana 6:</b> Redes neuronales para reducción de dimensionalidad.</li>
+<li><b>Semana 7:</b> Técnicas probabilísticas y basadas en grafos: Factor Analysis, Laplacian Eigenmaps.</li>
+<li><b>Semana 8:</b> Extracción de características moderna: simCLR, Isolation Forest, One‑class SVM.</li>
+<li><b>Semana 9:</b> Presentación de avances del proyecto y evaluación parcial.</li>
+</ul>
+</div>
+
+<div class="pub">
+<heading>Unidad II: Agrupamiento, reglas de asociación y aplicaciones avanzadas</heading>
+<p><b>Duración:</b> Semanas 10 al 18 (45 horas)</p>
+<p><b>Logro de unidad:</b> Aplica técnicas de agrupamiento y reglas de asociación del aprendizaje no supervisado en aplicaciones reales.</p>
+
+<ul>
+<li><b>Semana 10:</b> Clustering particional: k‑means, k‑medoids.</li>
+<li><b>Semana 11:</b> Clustering jerárquico (Agglomerative) y basado en densidad (DBSCAN, HDBSCAN).</li>
+<li><b>Semana 12:</b> Modelos probabilísticos (Gaussian Mixture) y basados en grafos (Spectral Clustering).</li>
+<li><b>Semana 13:</b> Clustering difuso (Fuzzy C‑Means), subespacial (CLIQUE, PROCLUS) y deep clustering (DEC).</li>
+<li><b>Semana 14:</b> Reglas de asociación: métricas (support, confidence, lift, etc.) y algoritmos (Apriori, FP‑Growth, Eclat).</li>
+<li><b>Semana 15:</b> Variantes avanzadas: asociación ponderada, negativa, secuencial (PrefixSpan, SPADE).</li>
+<li><b>Semana 16:</b> Enfoques modernos: datos continuos, big data, grafos y deep learning.</li>
+<li><b>Semana 17:</b> Integración y revisión final del proyecto.</li>
+<li><b>Semana 18:</b> Presentación y defensa del proyecto final.</li>
+</ul>
+</div>
+
+<hr/>
+
+<heading id="metodologia">Metodología</heading>
+<div class="pub">
+<ul>
+<li>Actividades síncronas: videoconferencias, foros de discusión, chat en línea.</li>
+<li>Actividades asíncronas: revisión de foros, tareas, materiales de lectura, diapositivas y vídeos.</li>
+<li>Análisis de textos, guías y manuales.</li>
+<li>Uso de plataformas en la nube (Google Colab, Jupyter Notebook) y lenguajes R y Python.</li>
+<li>Resolución de casos y exposición de propuestas de solución.</li>
+<li>Investigación formativa: revisión estructurada de bibliografía, informes con normas APA e IEEE.</li>
+<li>Responsabilidad social: análisis de problemas sociales y difusión de soluciones.</li>
+</ul>
+</div>
+
+<hr/>
+
+<heading id="evaluacion">Evaluación</heading>
+<div class="pub">
+<ul>
+<li><b>Unidad I (50%):</b> Evaluación de técnicas básicas ANS – 50% + Evaluación parcial de reducción de dimensionalidad – 50%.</li>
+<li><b>Unidad II (50%):</b> Evaluación de técnicas avanzadas de agrupamiento – 50% + Evaluación final de Aprendizaje No Supervisado – 50%.</li>
+<li><b>Participación y coevaluación:</b> se considera dentro de las ponderaciones.</li>
+</ul>
+<p><b>Fórmula:</b> Promedio final = 50% (U1) + 50% (U2)</p>
+</div>
+
+<hr/>
+
+<heading id="entregables">Entregables</heading>
+<div class="pub">
+<ul>
+<li>Informe de preprocesamiento y análisis exploratorio.</li>
+<li>Aplicación de PCA, t‑SNE u otras técnicas de reducción.</li>
+<li>Modelo de clustering (k‑means, jerárquico, DBSCAN, etc.) con evaluación.</li>
+<li>Análisis de reglas de asociación con métricas y algoritmos.</li>
+<li>Proyecto integrador que cubra todas las etapas del aprendizaje no supervisado.</li>
+<li>Presentación final (pitch + demo en la nube).</li>
+</ul>
+</div>
+
+<hr/>
+
+<heading id="recursos">Recursos</heading>
+<div class="pub">
+<ul>
+<li><a href="https://www.python.org/" target="_blank">Python</a></li>
+<li><a href="https://www.r-project.org/" target="_blank">R</a></li>
+<li><a href="https://colab.research.google.com/" target="_blank">Google Colab</a></li>
+<li><a href="https://jupyter.org/" target="_blank">Jupyter Notebook</a></li>
+<li><a href="https://scikit-learn.org/" target="_blank">Scikit‑learn</a></li>
+<li><a href="https://www.tensorflow.org/" target="_blank">TensorFlow / Keras</a></li>
+<li><a href="https://pytorch.org/" target="_blank">PyTorch</a></li>
+</ul>
+</div>
+
+<hr/>
+
+<heading id="bibliografia">Bibliografía</heading>
+<div class="pub">
+<ul>
+<li>Correa, J. (2014). <i>Introducción a la Estadística Bayesiana con R</i>. UN de Medellín.</li>
+<li>Barber, D. (2017). <i>Bayesian Reasoning and Machine Learning</i> (3ª ed.). Cambridge University Press.</li>
+<li>Theodoridis, S. (2017). <i>Machine Learning: A Bayesian and Optimization Perspective</i>. Elsevier.</li>
+<li>Hoff, P. (2009). <i>A First Course in Bayesian Statistical Methods</i>. Springer.</li>
+<li>Goodfellow, I., Bengio, Y. & Courville, A. (2016). <i>Deep Learning</i>. MIT Press.</li>
+<li>Bishop, C. (2006). <i>Pattern Recognition and Machine Learning</i>. Springer.</li>
+<li>Hastie, T., Tibshirani, R. & Friedman, J. (2014). <i>The Elements of Statistical Learning</i> (2ª ed.). Springer.</li>
+<li>Stuart Russell & Peter Norvig (2014). <i>Inteligencia Artificial: Un Enfoque Moderno</i> (3ª ed.). Prentice Hall.</li>
+</ul>
+</div>
+
+<hr/>
+
+<heading id="contacto">Contacto</heading>
+<p>laleman@unap.edu.pe</p>
+
+<hr/>
+
+<div id="footer">
+<heading>&copy; 2026 UNAP - FIEI - Ingeniería Estadística e Informática</heading>
+</div>
+
+</td>
+</tr>
+</table>
+<div style="height: 40px;"></div>
+</div>
+
+<script xml:space="preserve" language="JavaScript">hideallbibs();</script>
+</body>
+</html>
