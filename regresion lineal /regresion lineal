@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+<link rel="stylesheet" type="text/css" href="./lib/style.css">
+<script type="text/javascript" src="./lib/hidebib.js"></script>
+<title>Regresión Lineal y No Lineal - EST209</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="regresión lineal, regresión no lineal, modelos curvilíneos, Tobit, GAM, estadística" />
+<meta name="description" content="Sílabo del curso de Regresión Lineal y No Lineal - Ingeniería Estadística e Informática - UNAP" />
+</head>
+
+<body style="background-color: #060913; margin: 0; padding:0;">
+<div style="padding: 25px;">
+<table width="800" border="0" align="center" cellpadding="20" style="background-color: #fff;">
+<tr>
+<td>
+
+<table width="100%" align="center" border="0" cellpadding="10">
+<tr>
+<td width="70%" style="vertical-align: top; text-align: left;">
+<p style="font-size: 36px;">Regresión Lineal y No Lineal</p>
+<p style="font-size: 16px;">
+Ingeniería Estadística e Informática<br>
+Facultad de Ingeniería Estadística e Informática<br>
+Universidad Nacional del Altiplano - Puno
+</p>
+<p style="font-size: 16px;">
+Código: EST209 | Ciclo: VI | Créditos: 4<br>
+Horas: 3 teóricas, 2 prácticas | Total: 5 horas
+</p>
+<p style="font-size: 16px;">
+Prof. Dr. Confesor Milan Vargas Valverde
+</p>
+</td>
+<td width="30%" valign="bottom" align="right"></td>
+</tr>
+
+<tr>
+<td colspan="2">
+<p>
+<a href="#sumilla">Sumilla</a> |
+<a href="#logro">Logro</a> |
+<a href="#contenido">Contenido</a> |
+<a href="#metodologia">Metodología</a> |
+<a href="#evaluacion">Evaluación</a> |
+<a href="#entregables">Entregables</a> |
+<a href="#recursos">Recursos</a> |
+<a href="#bibliografia">Bibliografía</a> |
+<a href="#contacto">Contacto</a>
+</p>
+</td>
+</tr>
+</table>
+
+<hr/>
+
+<heading id="sumilla">Sumilla</heading>
+<p style="text-align: justify">
+El curso de Regresión Lineal y No Lineal corresponde al área curricular de Estudios específicos, es de naturaleza teórico‑práctica y tiene como propósito brindar metodologías estadísticas cuantitativas y cualitativas para estimar modelos que expliquen el comportamiento de una variable de interés usando software estadístico. Los contenidos se organizan en dos unidades: la primera aborda la regresión lineal simple y múltiple, correlación, y modelos curvilíneos (cuadrático, cúbico); la segunda cubre modelos no lineales (compuesto, logarítmico, crecimiento, potencia, exponencial, logístico), modelos aditivos generalizados (GAM) y regresión Tobit para datos censurados.
+</p>
+
+<hr/>
+
+<heading id="logro">Logro del curso</heading>
+<p style="text-align: justify">
+Al finalizar el curso, el estudiante usa técnicas de regresión lineal y no lineal para encontrar modelos válidos y realizar pronósticos en trabajos de investigación, cumpliendo los supuestos del modelo lineal en la primera unidad y superando las limitaciones de los modelos lineales mediante técnicas no lineales en la segunda.
+</p>
+
+<hr/>
+
+<heading id="contenido">Contenido</heading>
+
+<div class="pub">
+<heading>Unidad I: Modelos de regresión lineales</heading>
+<p><b>Duración:</b> Semanas 1 al 8 (40 horas)</p>
+<p><b>Logro de unidad:</b> Encuentra modelos de regresión lineales válidos que cumplan los supuestos del modelo.</p>
+
+<ul>
+<li><b>Semana 1:</b> Definiciones básicas: regresión, correlación, betas, error de estimación. Pruebas de hipótesis.</li>
+<li><b>Semana 2:</b> Método de Mínimos Cuadrados y método de Doolittle Abreviado.</li>
+<li><b>Semana 3:</b> Estimación del modelo lineal simple: beta0, beta1, interpretación, gráficos, pruebas T y F.</li>
+<li><b>Semana 4:</b> Modelo cuadrático: cálculo de betas y pruebas de hipótesis.</li>
+<li><b>Semana 5:</b> Modelo cúbico: identificación, estimación e interpretación.</li>
+<li><b>Semana 6:</b> Modelo lineal múltiple con dos variables independientes (método Doolittle).</li>
+<li><b>Semana 7:</b> Modelo lineal múltiple con tres y cuatro variables independientes. Enfoque matricial.</li>
+<li><b>Semana 8:</b> Evaluación parcial (trabajos y examen escrito).</li>
+</ul>
+</div>
+
+<div class="pub">
+<heading>Unidad II: Modelos de regresión no lineales</heading>
+<p><b>Duración:</b> Semanas 9 al 17 (45 horas)</p>
+<p><b>Logro de unidad:</b> Encuentra modelos no lineales que rompen con las limitaciones de los modelos lineales.</p>
+
+<ul>
+<li><b>Semana 9:</b> Introducción a los modelos curvilíneos: definiciones y métodos de estimación.</li>
+<li><b>Semana 10:</b> Modelos compuesto y logarítmico: mínimos cuadrados, pruebas e interpretación.</li>
+<li><b>Semana 11:</b> Modelos de crecimiento y potencia.</li>
+<li><b>Semana 12:</b> Modelos exponencial y logístico.</li>
+<li><b>Semana 13:</b> Práctica y reforzamiento de teoría.</li>
+<li><b>Semana 14:</b> Programación de modelos (creación de software propio).</li>
+<li><b>Semana 15:</b> Modelo Tobit (datos censurados).</li>
+<li><b>Semana 16:</b> Modelos aditivos generalizados (GAM) y otras extensiones.</li>
+<li><b>Semana 17:</b> Evaluación final (trabajos y examen escrito).</li>
+</ul>
+</div>
+
+<hr/>
+
+<heading id="metodologia">Metodología</heading>
+<div class="pub">
+<ul>
+<li>Videoconferencias, videofórum, chat en línea, foros de análisis y discusión.</li>
+<li>Exposiciones, debates y solución de casos prácticos.</li>
+<li>Investigación formativa: elaboración de trabajos de investigación descriptiva con procesamiento y pronósticos.</li>
+<li>Aplicación de conocimientos en ayuda interdisciplinaria para el avance científico.</li>
+<li>Uso de aula virtual (Classroom o Moodle) para temas complementarios.</li>
+</ul>
+</div>
+
+<hr/>
+
+<heading id="evaluacion">Evaluación</heading>
+<div class="pub">
+<ul>
+<li><b>Unidad I (50%):</b> Evidencia 1 (Trabajos) – 50% + Evidencia 2 (Examen escrito) – 50%.</li>
+<li><b>Unidad II (50%):</b> Evidencia 3 (Trabajos) – 50% + Evidencia 4 (Examen escrito) – 50%.</li>
+</ul>
+<p><b>Fórmula:</b> Promedio final = 50% (U1) + 50% (U2)</p>
+</div>
+
+<hr/>
+
+<heading id="entregables">Entregables</heading>
+<div class="pub">
+<ul>
+<li>Informe de regresión lineal simple y múltiple.</li>
+<li>Modelo cuadrático y cúbico ajustados.</li>
+<li>Modelos no lineales (compuesto, logarítmico, etc.) aplicados a casos.</li>
+<li>Software propio para estimación de modelos no lineales.</li>
+<li>Estudio de caso con modelo Tobit o GAM.</li>
+<li>Presentación final de resultados.</li>
+</ul>
+</div>
+
+<hr/>
+
+<heading id="recursos">Recursos</heading>
+<div class="pub">
+<ul>
+<li><a href="https://www.r-project.org/" target="_blank">R</a></li>
+<li><a href="https://www.python.org/" target="_blank">Python</a></li>
+<li><a href="https://www.ibm.com/spss" target="_blank">SPSS</a></li>
+<li><a href="https://www.stata.com/" target="_blank">Stata</a></li>
+<li><a href="https://colab.research.google.com/" target="_blank">Google Colab</a></li>
+</ul>
+</div>
+
+<hr/>
+
+<heading id="bibliografia">Bibliografía</heading>
+<div class="pub">
+<ul>
+<li>Ostle, B. (1979). <i>Estadística Aplicada</i>. LIMUSA.</li>
+<li>Córdova, M. (2009). <i>Estadística Descriptiva e Inferencial</i>. MOSHERA.</li>
+<li>Córdova, M. (2002). <i>Estadística Inferencial</i>. MOSHERA.</li>
+<li>D’Ancona, A. (2004). <i>Análisis multivariable. Teoría y práctica en la investigación social</i>. SÍNTESIS.</li>
+<li>Gujarati, D. & Porter, D. (2010). <i>Econometría</i>. McGraw Hill.</li>
+<li>Pérez, C. (2008). <i>Econometría Avanzada: Técnicas y herramientas</i>. Pearson.</li>
+<li>Spiegel, M. & Stephens, L. (2004). <i>Estadística</i>. McGraw Hill.</li>
+</ul>
+</div>
+
+<hr/>
+
+<heading id="contacto">Contacto</heading>
+<p>cvargas@unap.edu.pe</p>
+
+<hr/>
+
+<div id="footer">
+<heading>&copy; 2026 UNAP - FIEI - Ingeniería Estadística e Informática</heading>
+</div>
+
+</td>
+</tr>
+</table>
+<div style="height: 40px;"></div>
+</div>
+
+<script xml:space="preserve" language="JavaScript">hideallbibs();</script>
+</body>
+</html>
