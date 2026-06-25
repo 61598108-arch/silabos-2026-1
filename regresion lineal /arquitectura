@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+<link rel="stylesheet" type="text/css" href="./lib/style.css">
+<script type="text/javascript" src="./lib/hidebib.js"></script>
+<title>Arquitectura de Redes y Protocolos - EST316</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="redes, protocolos, OSI, TCP/IP, enrutamiento, Cisco Packet Tracer, telecomunicaciones" />
+<meta name="description" content="Sílabo del curso de Arquitectura de Redes y Protocolos - Ingeniería Estadística e Informática - UNAP" />
+</head>
+
+<body style="background-color: #060913; margin: 0; padding:0;">
+<div style="padding: 25px;">
+<table width="800" border="0" align="center" cellpadding="20" style="background-color: #fff;">
+<tr>
+<td>
+
+<table width="100%" align="center" border="0" cellpadding="10">
+<tr>
+<td width="70%" style="vertical-align: top; text-align: left;">
+<p style="font-size: 36px;">Arquitectura de Redes y Protocolos</p>
+<p style="font-size: 16px;">
+Ingeniería Estadística e Informática<br>
+Facultad de Ingeniería Estadística e Informática<br>
+Universidad Nacional del Altiplano - Puno
+</p>
+<p style="font-size: 16px;">
+Código: EST316 | Ciclo: VI | Créditos: 3<br>
+Horas: 2 teóricas, 2 prácticas | Total: 4 horas
+</p>
+<p style="font-size: 16px;">
+Prof. Alejandro Apaza Tarqui
+</p>
+</td>
+<td width="30%" valign="bottom" align="right"></td>
+</tr>
+
+<tr>
+<td colspan="2">
+<p>
+<a href="#sumilla">Sumilla</a> |
+<a href="#logro">Logro</a> |
+<a href="#contenido">Contenido</a> |
+<a href="#metodologia">Metodología</a> |
+<a href="#evaluacion">Evaluación</a> |
+<a href="#entregables">Entregables</a> |
+<a href="#recursos">Recursos</a> |
+<a href="#bibliografia">Bibliografía</a> |
+<a href="#contacto">Contacto</a>
+</p>
+</td>
+</tr>
+</table>
+
+<hr/>
+
+<heading id="sumilla">Sumilla</heading>
+<p style="text-align: justify">
+El curso de Arquitectura de Redes y Protocolos corresponde al área de estudios de especialidad, es de naturaleza teórica‑práctica y proporciona al estudiante la comprensión para implementar la organización de redes computacionales y los protocolos sobre los que se fundamenta su lógica de funcionamiento, con énfasis en la conectividad usando tecnologías modernas de transmisión de datos y comunicaciones. Los contenidos se dividen en dos unidades: fundamentos, arquitectura, tipos, medios y protocolos de comunicación de datos; y servicios, seguridad y talleres de simulación de redes de comunicación de datos de una organización.
+</p>
+
+<hr/>
+
+<heading id="logro">Logro del curso</heading>
+<p style="text-align: justify">
+Al finalizar el curso, el estudiante comprende el fundamento de Arquitectura de Redes y Protocolos para diseñar, configurar y administrar redes de telecomunicaciones utilizando herramientas de simulación como Cisco Packet Tracer.
+</p>
+
+<hr/>
+
+<heading id="contenido">Contenido</heading>
+
+<div class="pub">
+<heading>Unidad I: Fundamentos de comunicación de datos y arquitectura de redes</heading>
+<p><b>Duración:</b> Semanas 1 al 9 (36 horas)</p>
+<p><b>Logro de unidad:</b> Determina las condiciones técnicas y arquitectónicas del funcionamiento de redes informáticas y teleprocesamiento, considerando arquitectura, medios, elementos y protocolos.</p>
+
+<ul>
+<li><b>Semana 1:</b> Conceptos, elementos, dispositivos, arquitectura de redes y protocolos.</li>
+<li><b>Semana 2:</b> Paradigmas de transmisión y acceso al medio: conmutación, modulación y multiplexación.</li>
+<li><b>Semana 3:</b> Tipos de redes (PAN, LAN, MAN, WAN, WLAN, GAN, CAN, SAN, internet, intranet, extranet).</li>
+<li><b>Semana 4:</b> Topologías físicas y lógicas. Cableado estructurado. Redes de banda ancha.</li>
+<li><b>Semana 5:</b> Protocolos y arquitecturas: modelos OSI y TCP/IP (capas, interfaces, servicios).</li>
+<li><b>Semana 6:</b> Capa física: medios de comunicación, señalización, representación y codificación.</li>
+<li><b>Semana 7:</b> Tecnología Ethernet y estándares IEEE 802.x. NICs, hubs, switches, protocolo ARP.</li>
+<li><b>Semana 8:</b> Capa de enlace de datos: control de acceso al medio, entramado de datos.</li>
+<li><b>Semana 9:</b> Capa de red: enrutamiento IPv4, dispositivos, paquetes, interfaces y direcciones IP.</li>
+</ul>
+</div>
+
+<div class="pub">
+<heading>Unidad II: Diseño arquitectónico lógico y protocolos en capas OSI y TCP/IP</heading>
+<p><b>Duración:</b> Semanas 10 al 17 (32 horas)</p>
+<p><b>Logro de unidad:</b> Diseña arquitectónicamente redes lógicas y protocolares en diferentes capas del modelo OSI‑TCP/IP.</p>
+
+<ul>
+<li><b>Semana 10:</b> Dispositivos router: técnicas de enrutamiento, IPv6, paquetes e interfaces.</li>
+<li><b>Semana 11:</b> Simulación de direccionamiento IP (v4 y v6) con Cisco Packet Tracer.</li>
+<li><b>Semana 12:</b> Capas de transporte, sesión, presentación y aplicación: funciones, servicios y protocolos (TCP/UDP, DNS, FTP, HTTP, etc.).</li>
+<li><b>Semana 13:</b> Enrutamiento estático y dinámico. Configuración de servidores DNS, HTTP, FTP y correos.</li>
+<li><b>Semana 14:</b> Redes inalámbricas (WLAN): arquitectura, servicios y control IEEE 802.11.</li>
+<li><b>Semana 15:</b> Redes satelitales: arquitectura, servicios y control de acceso.</li>
+<li><b>Semana 16:</b> Redes de fibra óptica: arquitectura, estructura y características.</li>
+<li><b>Semana 17:</b> Seguridad de redes: fundamentos y normatividad técnica.</li>
+</ul>
+</div>
+
+<hr/>
+
+<heading id="metodologia">Metodología</heading>
+<div class="pub">
+<ul>
+<li>Exposiciones y conferencias magistrales (síncronas).</li>
+<li>Foros de debate y chat en línea.</li>
+<li>Actividades asíncronas: plataforma de aula virtual, tareas, biblioteca virtual.</li>
+<li>Enseñanza basada en problemas, casos y proyectos.</li>
+<li>Comprensión de textos, producción de folletos de ejercicios, trabajos grupales.</li>
+<li>Simulaciones con Cisco Packet Tracer.</li>
+<li>Investigación formativa: seminarios y proyectos de semilleros.</li>
+</ul>
+</div>
+
+<hr/>
+
+<heading id="evaluacion">Evaluación</heading>
+<div class="pub">
+<ul>
+<li><b>Unidad I (50%):</b> Unidad 1 EV (100%) – evidencia única (examen o proyecto).</li>
+<li><b>Unidad II (50%):</b> Unidad 2 EV (100%) – evidencia única (proyecto de configuración de servidores, etc.).</li>
+<li><b>Participación y coevaluación:</b> se considera dentro de las evaluaciones.</li>
+</ul>
+<p><b>Fórmula:</b> Promedio final = 50% (U1) + 50% (U2)</p>
+</div>
+
+<hr/>
+
+<heading id="entregables">Entregables</heading>
+<div class="pub">
+<ul>
+<li>Diseño y construcción de medio físico guiado (cable UTP y coaxial).</li>
+<li>Diseño y configuración de servidores (DHCP, DNS, Web, FTP, correos) en Packet Tracer.</li>
+<li>Simulación de enrutamiento estático y dinámico.</li>
+<li>Proyecto de red LAN con subredes.</li>
+<li>Informe de seguridad en redes.</li>
+<li>Presentación final de la simulación.</li>
+</ul>
+</div>
+
+<hr/>
+
+<heading id="recursos">Recursos</heading>
+<div class="pub">
+<ul>
+<li><a href="https://www.netacad.com/" target="_blank">Cisco Networking Academy</a></li>
+<li><a href="https://www.packettracernetwork.com/" target="_blank">Cisco Packet Tracer</a></li>
+<li><a href="https://www.wireshark.org/" target="_blank">Wireshark</a></li>
+<li><a href="https://www.gns3.com/" target="_blank">GNS3</a></li>
+</ul>
+</div>
+
+<hr/>
+
+<heading id="bibliografia">Bibliografía</heading>
+<div class="pub">
+<ul>
+<li>Apaza T., A. (2002). <i>Redes y Teleproceso</i>. Lucero impresiones.</li>
+<li>Domingo, A. A. (2013). <i>Redes locales</i>. McGraw‑Hill.</li>
+<li>Dordoigne, J. (2015). <i>Redes informáticas – Nociones fundamentales</i> (5ª ed.). Eni.</li>
+<li>Font R., M. et al. (2011). <i>Estructura de redes de computadores</i>. UOC.</li>
+<li>Herrera P., E. (2004). <i>Introducción a las telecomunicaciones modernas</i>. Limusa.</li>
+<li>Pérez, S. C. & Facchini, H. (2017). <i>Dispositivos y protocolos de redes LAN y WAN</i>. UTN.</li>
+<li>Stallings, W. (2004). <i>Comunicaciones y Redes de computadores</i> (7ª ed.). Pearson.</li>
+<li>Tanenbaum, A. S. & Wetherall, D. J. (2012). <i>Redes de computadoras</i> (5ª ed.). Pearson.</li>
+</ul>
+</div>
+
+<hr/>
+
+<heading id="contacto">Contacto</heading>
+<p>aapaza@unap.edu.pe</p>
+
+<hr/>
+
+<div id="footer">
+<heading>&copy; 2026 UNAP - FIEI - Ingeniería Estadística e Informática</heading>
+</div>
+
+</td>
+</tr>
+</table>
+<div style="height: 40px;"></div>
+</div>
+
+<script xml:space="preserve" language="JavaScript">hideallbibs();</script>
+</body>
+</html>
