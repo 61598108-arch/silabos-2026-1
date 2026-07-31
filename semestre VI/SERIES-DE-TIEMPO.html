@@ -1,3 +1,1833 @@
+Aquí tienes el código completo de la página principal y los seis cursos con los enlaces corregidos. Ahora, al hacer clic en "Volver al inicio", regresarás correctamente a la página principal desde cualquier curso.
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silabos 2026-1 · Ingeniería Estadística e Informática</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f0f4fc;
+      color: #1e293b;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+    .main-wrapper {
+      max-width: 1300px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 2.5rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      padding: 2rem 2rem 3rem;
+      transition: all 0.2s ease;
+    }
+    .header-modern {
+      background: linear-gradient(145deg, #0b2a4a, #1a3f66);
+      color: white;
+      padding: 2.5rem 2rem;
+      border-radius: 2rem 2rem 0 0;
+      margin: -2rem -2rem 2rem -2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .header-modern::after {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -10%;
+      width: 300px;
+      height: 300px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .header-modern .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(4px);
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #b6d4fe;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 0.75rem;
+    }
+    .header-modern h1 {
+      font-weight: 700;
+      font-size: 2.6rem;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.3rem;
+    }
+    .header-modern h1 i {
+      color: #6d9eff;
+      margin-right: 0.5rem;
+    }
+    .header-modern .subhead {
+      font-size: 1.1rem;
+      font-weight: 400;
+      opacity: 0.85;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .header-modern .subhead i {
+      color: #8bb3ff;
+    }
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin-top: 1.5rem;
+    }
+    .course-card {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 1.8rem 1.5rem 2rem;
+      box-shadow: 0 4px 12px rgba(0, 20, 50, 0.06);
+      border: 1px solid #e9edf4;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .course-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -12px rgba(0, 40, 80, 0.12);
+      border-color: #cbd9eb;
+    }
+    .course-card .icon-wrapper {
+      width: 48px;
+      height: 48px;
+      background: #e9f0fa;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1a4c7a;
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+      transition: 0.2s;
+    }
+    .course-card:hover .icon-wrapper {
+      background: #d4e2f7;
+      color: #0a2e50;
+    }
+    .course-card h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: #0b2a4a;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+      flex: 1;
+    }
+    .course-card .meta {
+      font-size: 0.8rem;
+      color: #5e7188;
+      margin-bottom: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      border-top: 1px dashed #e2e9f2;
+      padding-top: 0.8rem;
+    }
+    .course-card .meta span i {
+      margin-right: 0.3rem;
+      color: #3b6a9e;
+      width: 1rem;
+    }
+    .course-card .btn-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: #0b2a4a;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+      margin-top: 0.2rem;
+      align-self: flex-start;
+    }
+    .course-card .btn-link i {
+      font-size: 0.9rem;
+      transition: transform 0.2s;
+    }
+    .course-card .btn-link:hover {
+      background: #1a4c7a;
+      box-shadow: 0 8px 18px -6px rgba(11, 42, 74, 0.3);
+      transform: scale(1.02);
+    }
+    .course-card .btn-link:hover i {
+      transform: translateX(4px);
+    }
+    .footer-note {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #6b7f96;
+      border-top: 1px solid #e2e9f2;
+      padding-top: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-note span i {
+      margin-right: 0.4rem;
+      color: #3b6a9e;
+    }
+    .footer-note .divider {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #bccbd9;
+    }
+    .course-card .badge-creditos {
+      background: #e9f0fa;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #1a4c7a;
+    }
+    @media (max-width: 640px) {
+      .main-wrapper {
+        padding: 1rem 1rem 2rem;
+        border-radius: 1.8rem;
+      }
+      .header-modern {
+        padding: 1.8rem 1.2rem;
+        margin: -1rem -1rem 1.8rem -1rem;
+        border-radius: 1.5rem 1.5rem 0 0;
+      }
+      .header-modern h1 {
+        font-size: 2rem;
+      }
+      .courses-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+    }
+    @media (min-width: 641px) and (max-width: 900px) {
+      .courses-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="main-wrapper">
+
+  <header class="header-modern">
+    <div class="badge"><i class="fas fa-calendar-alt" style="margin-right:6px;"></i> Ciclo 2026 - 1</div>
+    <h1><i class="fas fa-graduation-cap"></i> Silabos</h1>
+    <div class="subhead">
+      <i class="fas fa-chart-bar"></i>
+      <span>Ingeniería Estadística e Informática</span>
+      <span style="opacity:0.5; margin:0 6px;">|</span>
+      <i class="fas fa-users"></i>
+      <span>VI Semestre</span>
+    </div>
+  </header>
+
+  <div class="courses-grid">
+
+    <div class="course-card">
+      <div class="icon-wrapper"><i class="fas fa-robot"></i></div>
+      <h2>Aprendizaje No Supervisado</h2>
+      <div class="meta">
+        <span><i class="fas fa-code"></i> EST314</span>
+        <span><i class="fas fa-clock"></i> 5h/sem</span>
+        <span class="badge-creditos"><i class="fas fa-star"></i> 4 créd.</span>
+      </div>
+      <a href="semestre%20VI/APRENDIZAJE-NO-SUPERVISADO.html" class="btn-link">
+        Ingresar curso <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="course-card">
+      <div class="icon-wrapper"><i class="fas fa-network-wired"></i></div>
+      <h2>Arquitectura de Redes y Protocolos</h2>
+      <div class="meta">
+        <span><i class="fas fa-code"></i> EST316</span>
+        <span><i class="fas fa-clock"></i> 4h/sem</span>
+        <span class="badge-creditos"><i class="fas fa-star"></i> 3 créd.</span>
+      </div>
+      <a href="semestre%20VI/ARQUITECTURA-DE-REDES-Y-PROTOCOLOS.html" class="btn-link">
+        Ingresar curso <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="course-card">
+      <div class="icon-wrapper"><i class="fas fa-diagram-project"></i></div>
+      <h2>Gestión de Proyectos TICs</h2>
+      <div class="meta">
+        <span><i class="fas fa-code"></i> EST315</span>
+        <span><i class="fas fa-clock"></i> 5h/sem</span>
+        <span class="badge-creditos"><i class="fas fa-star"></i> 4 créd.</span>
+      </div>
+      <a href="semestre%20VI/GESTION-DE-PROYECTOS-TICS.html" class="btn-link">
+        Ingresar curso <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="course-card">
+      <div class="icon-wrapper"><i class="fas fa-chart-line"></i></div>
+      <h2>Modelos Lineales</h2>
+      <div class="meta">
+        <span><i class="fas fa-code"></i> EST210</span>
+        <span><i class="fas fa-clock"></i> 6h/sem</span>
+        <span class="badge-creditos"><i class="fas fa-star"></i> 5 créd.</span>
+      </div>
+      <a href="semestre%20VI/MODELOS-LINEALES.html" class="btn-link">
+        Ingresar curso <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="course-card">
+      <div class="icon-wrapper"><i class="fas fa-scatter-chart"></i></div>
+      <h2>Regresión Lineal y No Lineal</h2>
+      <div class="meta">
+        <span><i class="fas fa-code"></i> EST209</span>
+        <span><i class="fas fa-clock"></i> 5h/sem</span>
+        <span class="badge-creditos"><i class="fas fa-star"></i> 4 créd.</span>
+      </div>
+      <a href="semestre%20VI/REGRESION-LINEAL-Y-NO-LINEAL.html" class="btn-link">
+        Ingresar curso <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="course-card">
+      <div class="icon-wrapper"><i class="fas fa-clock"></i></div>
+      <h2>Series de Tiempo</h2>
+      <div class="meta">
+        <span><i class="fas fa-code"></i> EST317</span>
+        <span><i class="fas fa-clock"></i> 5h/sem</span>
+        <span class="badge-creditos"><i class="fas fa-star"></i> 4 créd.</span>
+      </div>
+      <a href="semestre%20VI/SERIES-DE-TIEMPO.html" class="btn-link">
+        Ingresar curso <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="footer-note">
+    <span><i class="fas fa-book-open"></i> 6 cursos · VI semestre</span>
+    <span class="divider"></span>
+    <span><i class="fas fa-file-alt"></i> Silabos actualizados 2026-1</span>
+    <span class="divider"></span>
+    <span><i class="fas fa-university"></i> Escuela Profesional</span>
+  </div>
+
+</div>
+</body>
+</html>
+```
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silabo · Aprendizaje No Supervisado · 2026-1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:'Inter',sans-serif;
+      background:#f0f4fc;
+      color:#1e293b;
+      padding:2rem 1rem;
+      display:flex;
+      justify-content:center;
+    }
+    .silabo {
+      max-width:1100px;
+      width:100%;
+      background:#fff;
+      border-radius:2rem;
+      box-shadow:0 25px 50px -12px rgba(0,0,0,0.15);
+      padding:2rem 2.5rem;
+      position:relative;
+    }
+    .silabo::before {
+      content:'';
+      position:absolute;
+      top:0; left:0; right:0;
+      height:6px;
+      background:linear-gradient(90deg,#0b2a4a,#3b6a9e,#8bb3ff);
+      border-radius:2rem 2rem 0 0;
+    }
+    .header-curso {
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      flex-wrap:wrap;
+      margin-bottom:2rem;
+      border-bottom:2px solid #e9edf4;
+      padding-bottom:1.5rem;
+    }
+    .header-curso h1 {
+      font-size:2rem;
+      font-weight:700;
+      color:#0b2a4a;
+      letter-spacing:-0.02em;
+    }
+    .header-curso h1 i { color:#3b6a9e; margin-right:0.5rem; }
+    .header-curso .codigo {
+      background:#e9f0fa;
+      padding:0.4rem 1.2rem;
+      border-radius:40px;
+      font-weight:600;
+      font-size:0.9rem;
+      color:#1a4c7a;
+    }
+    .badge-semestre {
+      display:inline-block;
+      background:#0b2a4a;
+      color:#fff;
+      padding:0.2rem 1rem;
+      border-radius:30px;
+      font-size:0.7rem;
+      font-weight:600;
+      letter-spacing:0.3px;
+      margin-left:0.5rem;
+    }
+    .grid-datos {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:0.8rem 1.5rem;
+      background:#f8fafd;
+      padding:1.2rem 1.5rem;
+      border-radius:1.2rem;
+      margin-bottom:2rem;
+      border:1px solid #e9edf4;
+    }
+    .grid-datos .item {
+      display:flex;
+      align-items:center;
+      gap:0.5rem;
+      font-size:0.9rem;
+    }
+    .grid-datos .item i { color:#3b6a9e; width:1.2rem; }
+    .docente {
+      background:#f8fafd;
+      border-radius:1rem;
+      padding:1rem 1.5rem;
+      margin:1.5rem 0;
+      border-left:4px solid #3b6a9e;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .docente strong { color:#0b2a4a; }
+    .seccion {
+      margin:2rem 0;
+    }
+    .seccion h2 {
+      font-size:1.4rem;
+      font-weight:600;
+      color:#0b2a4a;
+      border-bottom:2px solid #e2e9f2;
+      padding-bottom:0.4rem;
+      margin-bottom:1rem;
+      display:flex;
+      align-items:center;
+      gap:0.6rem;
+    }
+    .seccion h2 i { color:#3b6a9e; font-size:1.2rem; }
+    .seccion p, .seccion li { line-height:1.6; color:#1e293b; }
+    .seccion ul { padding-left:1.5rem; }
+    .unidad {
+      background:#f8fafd;
+      border-radius:1rem;
+      padding:1.2rem 1.5rem;
+      margin:1rem 0;
+      border:1px solid #e2e9f2;
+    }
+    .unidad h3 { color:#0b2a4a; margin-bottom:0.5rem; }
+    .unidad .meta-unidad {
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.5rem 1.5rem;
+      font-size:0.85rem;
+      color:#5e7188;
+      margin:0.5rem 0;
+    }
+    .tabla-eval {
+      width:100%;
+      border-collapse:collapse;
+      font-size:0.9rem;
+      margin:1rem 0;
+    }
+    .tabla-eval th {
+      background:#e9f0fa;
+      color:#0b2a4a;
+      font-weight:600;
+      padding:0.6rem 0.8rem;
+      text-align:left;
+    }
+    .tabla-eval td {
+      padding:0.6rem 0.8rem;
+      border-bottom:1px solid #e2e9f2;
+      vertical-align:top;
+    }
+    .tabla-eval tr:last-child td { border-bottom:none; }
+    .fuentes {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:1rem;
+      background:#f8fafd;
+      padding:1rem 1.5rem;
+      border-radius:1rem;
+      border:1px solid #e9edf4;
+    }
+    .fuentes .tipo { font-weight:600; color:#0b2a4a; }
+    .btn-volver {
+      display:inline-flex;
+      align-items:center;
+      gap:0.5rem;
+      background:#0b2a4a;
+      color:#fff;
+      padding:0.5rem 1.2rem;
+      border-radius:40px;
+      text-decoration:none;
+      font-weight:500;
+      font-size:0.9rem;
+      margin-top:1.5rem;
+      transition:0.2s;
+    }
+    .btn-volver:hover { background:#1a4c7a; transform:translateX(-3px); }
+    @media (max-width:640px) {
+      .silabo { padding:1rem; }
+      .header-curso h1 { font-size:1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="silabo">
+
+  <div class="header-curso">
+    <div>
+      <h1><i class="fas fa-robot"></i>Aprendizaje No Supervisado</h1>
+      <div style="margin-top:0.3rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <span class="codigo">EST314</span>
+        <span class="badge-semestre">VI semestre</span>
+        <span style="font-size:0.85rem; color:#5e7188;"><i class="far fa-calendar-alt"></i> 2026-1</span>
+      </div>
+    </div>
+    <div style="text-align:right; font-size:0.9rem; color:#5e7188;">
+      <i class="fas fa-user-graduate"></i> Avanzado
+    </div>
+  </div>
+
+  <div class="grid-datos">
+    <span class="item"><i class="fas fa-clock"></i> 5h/sem (3T+2P)</span>
+    <span class="item"><i class="fas fa-star"></i> 4 créditos</span>
+    <span class="item"><i class="fas fa-laptop"></i> Presencial</span>
+    <span class="item"><i class="fas fa-calendar-week"></i> 30 mar – 31 jul 2026</span>
+    <span class="item"><i class="fas fa-language"></i> Español</span>
+    <span class="item"><i class="fas fa-book"></i> Currículo 2021-2025 V.2.0</span>
+  </div>
+
+  <div class="docente">
+    <span><strong>Docente:</strong> ALEMAN GONZALES LEONID</span>
+    <span><strong>Categoría:</strong> Nombrado-ordinario, Profesor Asociado</span>
+    <span><strong>Especialidad:</strong> Ingeniería de Software / Ciencia de Datos</span>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-align-left"></i> Sumilla</h2>
+    <p>El curso de Aprendizaje No Supervisado corresponde al área curricular de estudios de especialidad, de naturaleza teórico-práctica, cuyo propósito es proponer y aplicar técnicas de preparación, preprocesamiento, reducción de dimensionalidad, agrupamiento y reglas de asociación sobre conjuntos de datos y sus aplicaciones.</p>
+    <p style="margin-top:0.5rem;"><strong>Contenido:</strong> Unidad I: Metodología, preprocesamiento y reducción de dimensionalidad. Unidad II: Técnicas de agrupamiento, reglas de asociación y aplicaciones avanzadas.</p>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-user-check"></i> Perfil del Egresado &amp; Logro</h2>
+    <p><strong>CE2.</strong> Construye y analiza modelos estadísticos y/o algoritmos computacionales para la toma de decisiones en incertidumbre, con actitud científica y ética.</p>
+    <p style="margin-top:0.5rem;"><strong>Logro del curso:</strong> Aplica adecuadamente técnicas de aprendizaje no supervisado en casos avanzados en cuatro dimensiones: Metodología, reducción de dimensionalidad, agrupamiento y reglas de decisiones.</p>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-layer-group"></i> Unidades Didácticas</h2>
+
+    <div class="unidad">
+      <h3>Unidad I · Metodología, preprocesamiento y reducción de dimensionalidad</h3>
+      <div class="meta-unidad">
+        <span><i class="far fa-calendar-alt"></i> 30 mar – 1 jun 2026 (45h)</span>
+        <span><i class="fas fa-video"></i> 4h virtuales</span>
+        <span><i class="fas fa-tasks"></i> 55% avance</span>
+      </div>
+      <p><strong>Logro:</strong> Aplica adecuadamente metodologías, técnicas de preprocesamiento y reducción de dimensionalidad en casos de aplicación.</p>
+      <p><strong>Contenido:</strong> Introducción al aprendizaje automático no supervisado, flujo de trabajo, preprocesamiento, Data Wrangling, feature engineering, PCA, SVD, LDA, t-SNE, UMAP, Isomap, LLE, redes neuronales para reducción, Factor Analysis, GP-LVM, Laplacian Eigenmaps, Isolation Forest, One-class SVM, simCLR.</p>
+      <p style="margin-top:0.5rem;"><strong>Evidencias:</strong> Evaluación de técnicas básicas ANS (50%) · Evaluación parcial de reducción de dimensionalidad (50%)</p>
+    </div>
+
+    <div class="unidad">
+      <h3>Unidad II · Agrupamiento, reglas de asociación y aplicaciones avanzadas</h3>
+      <div class="meta-unidad">
+        <span><i class="far fa-calendar-alt"></i> 1 jun – 31 jul 2026 (45h)</span>
+        <span><i class="fas fa-video"></i> 4h virtuales</span>
+        <span><i class="fas fa-tasks"></i> 100% avance</span>
+      </div>
+      <p><strong>Logro:</strong> Aplica adecuadamente técnicas de agrupamiento, reglas de asociación del aprendizaje no supervisado en aplicaciones reales.</p>
+      <p><strong>Contenido:</strong> Distancias, k-means, k-medoids, clustering jerárquico, DBSCAN, HDBSCAN, Gaussian Mixture Model, Spectral Clustering, Fuzzy C-Means, CLIQUE, PROCLUS, Deep Clustering (DEC), reglas de asociación (support, confidence, lift, conviction, leverage, Jaccard), Apriori, FP-Growth, Eclat, reglas secuenciales, PrefixSpan, SPADE, enfoques avanzados.</p>
+      <p style="margin-top:0.5rem;"><strong>Evidencias:</strong> Evaluación de técnicas avanzadas de agrupamiento (50%) · Evaluación final de Aprendizaje No Supervisado (50%)</p>
+    </div>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-chalkboard-teacher"></i> Estrategias Metodológicas</h2>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; background:#f8fafd; padding:1rem 1.5rem; border-radius:1rem; border:1px solid #e9edf4;">
+      <div><strong>Enseñanza:</strong> Videoconferencias, foros, chat, materiales asíncronos.</div>
+      <div><strong>Aprendizaje:</strong> Análisis de textos, guías, Google COLAB, Jupyter, R/Python, resolución de casos.</div>
+      <div><strong>Investigación formativa:</strong> Revisión bibliográfica estructurada, informes con normas APA/IEEE.</div>
+      <div><strong>Responsabilidad social:</strong> Análisis de problemas sociales, propuestas de solución y difusión.</div>
+      <div style="grid-column:1/-1;"><strong>Enseñanza virtual:</strong> Aula virtual, materiales digitales, procesamiento en la nube.</div>
+    </div>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-clipboard-list"></i> Evaluación del Aprendizaje</h2>
+    <table class="tabla-eval">
+      <thead><tr><th>Unidad</th><th>Evidencias</th><th>Ponderación</th><th>Instrumentos</th></tr></thead>
+      <tbody>
+        <tr><td>I</td><td>Evaluación técnicas básicas ANS (50%) · Evaluación parcial reducción dimensionalidad (50%)</td><td>50%</td><td>Lista de cotejo, rúbrica</td></tr>
+        <tr><td>II</td><td>Evaluación técnicas avanzadas agrupamiento (50%) · Evaluación final ANS (50%)</td><td>50%</td><td>Lista de cotejo, rúbrica, informe</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:0.8rem;"><strong>Fórmula:</strong> PPU1 = 50%(EV1) + 50%(EV2) · PPU2 = 50%(EV1) + 50%(EV2) · PF = 50%(I UPP) + 50%(II UPP)</p>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-book"></i> Fuentes de Información</h2>
+    <div class="fuentes">
+      <div><span class="tipo">Básica:</span> Correa J. (2014/2019), Barber D. (2017), Theodoridis (2017), Hoff (2009), Lambert (2014), Albert (2012), Christensen (2012), Koski & Noble (2010), Goodfellow (2016), Bishop (2006), Duda et al. (2000).</div>
+      <div><span class="tipo">Complementaria:</span> Hastie et al. (2014), Glover & Kochenberger (1998), Russell & Norvig (2014), Stanton (2017).</div>
+      <div><span class="tipo">Electrónicas:</span> Algorithm and heuristics, Python ML Tutorials.</div>
+      <div><span class="tipo">Producción docente:</span> Guías de programación con Python para Machine Learning (2019).</div>
+    </div>
+  </div>
+
+  <a href="../index.html" class="btn-volver"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+
+</div>
+</body>
+</html>
+```
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silabo · Arquitectura de Redes y Protocolos · 2026-1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:'Inter',sans-serif;
+      background:#f0f4fc;
+      color:#1e293b;
+      padding:2rem 1rem;
+      display:flex;
+      justify-content:center;
+    }
+    .silabo {
+      max-width:1100px;
+      width:100%;
+      background:#fff;
+      border-radius:2rem;
+      box-shadow:0 25px 50px -12px rgba(0,0,0,0.15);
+      padding:2rem 2.5rem;
+      position:relative;
+    }
+    .silabo::before {
+      content:'';
+      position:absolute;
+      top:0; left:0; right:0;
+      height:6px;
+      background:linear-gradient(90deg,#0b2a4a,#3b6a9e,#8bb3ff);
+      border-radius:2rem 2rem 0 0;
+    }
+    .header-curso {
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      flex-wrap:wrap;
+      margin-bottom:2rem;
+      border-bottom:2px solid #e9edf4;
+      padding-bottom:1.5rem;
+    }
+    .header-curso h1 {
+      font-size:2rem;
+      font-weight:700;
+      color:#0b2a4a;
+      letter-spacing:-0.02em;
+    }
+    .header-curso h1 i { color:#3b6a9e; margin-right:0.5rem; }
+    .header-curso .codigo {
+      background:#e9f0fa;
+      padding:0.4rem 1.2rem;
+      border-radius:40px;
+      font-weight:600;
+      font-size:0.9rem;
+      color:#1a4c7a;
+    }
+    .badge-semestre {
+      display:inline-block;
+      background:#0b2a4a;
+      color:#fff;
+      padding:0.2rem 1rem;
+      border-radius:30px;
+      font-size:0.7rem;
+      font-weight:600;
+      letter-spacing:0.3px;
+      margin-left:0.5rem;
+    }
+    .grid-datos {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:0.8rem 1.5rem;
+      background:#f8fafd;
+      padding:1.2rem 1.5rem;
+      border-radius:1.2rem;
+      margin-bottom:2rem;
+      border:1px solid #e9edf4;
+    }
+    .grid-datos .item {
+      display:flex;
+      align-items:center;
+      gap:0.5rem;
+      font-size:0.9rem;
+    }
+    .grid-datos .item i { color:#3b6a9e; width:1.2rem; }
+    .docente {
+      background:#f8fafd;
+      border-radius:1rem;
+      padding:1rem 1.5rem;
+      margin:1.5rem 0;
+      border-left:4px solid #3b6a9e;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .docente strong { color:#0b2a4a; }
+    .seccion {
+      margin:2rem 0;
+    }
+    .seccion h2 {
+      font-size:1.4rem;
+      font-weight:600;
+      color:#0b2a4a;
+      border-bottom:2px solid #e2e9f2;
+      padding-bottom:0.4rem;
+      margin-bottom:1rem;
+      display:flex;
+      align-items:center;
+      gap:0.6rem;
+    }
+    .seccion h2 i { color:#3b6a9e; font-size:1.2rem; }
+    .seccion p, .seccion li { line-height:1.6; color:#1e293b; }
+    .seccion ul { padding-left:1.5rem; }
+    .unidad {
+      background:#f8fafd;
+      border-radius:1rem;
+      padding:1.2rem 1.5rem;
+      margin:1rem 0;
+      border:1px solid #e2e9f2;
+    }
+    .unidad h3 { color:#0b2a4a; margin-bottom:0.5rem; }
+    .unidad .meta-unidad {
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.5rem 1.5rem;
+      font-size:0.85rem;
+      color:#5e7188;
+      margin:0.5rem 0;
+    }
+    .tabla-eval {
+      width:100%;
+      border-collapse:collapse;
+      font-size:0.9rem;
+      margin:1rem 0;
+    }
+    .tabla-eval th {
+      background:#e9f0fa;
+      color:#0b2a4a;
+      font-weight:600;
+      padding:0.6rem 0.8rem;
+      text-align:left;
+    }
+    .tabla-eval td {
+      padding:0.6rem 0.8rem;
+      border-bottom:1px solid #e2e9f2;
+      vertical-align:top;
+    }
+    .tabla-eval tr:last-child td { border-bottom:none; }
+    .fuentes {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:1rem;
+      background:#f8fafd;
+      padding:1rem 1.5rem;
+      border-radius:1rem;
+      border:1px solid #e9edf4;
+    }
+    .fuentes .tipo { font-weight:600; color:#0b2a4a; }
+    .btn-volver {
+      display:inline-flex;
+      align-items:center;
+      gap:0.5rem;
+      background:#0b2a4a;
+      color:#fff;
+      padding:0.5rem 1.2rem;
+      border-radius:40px;
+      text-decoration:none;
+      font-weight:500;
+      font-size:0.9rem;
+      margin-top:1.5rem;
+      transition:0.2s;
+    }
+    .btn-volver:hover { background:#1a4c7a; transform:translateX(-3px); }
+    @media (max-width:640px) {
+      .silabo { padding:1rem; }
+      .header-curso h1 { font-size:1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="silabo">
+
+  <div class="header-curso">
+    <div>
+      <h1><i class="fas fa-network-wired"></i>Arquitectura de Redes y Protocolos</h1>
+      <div style="margin-top:0.3rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <span class="codigo">EST316</span>
+        <span class="badge-semestre">VI semestre</span>
+        <span style="font-size:0.85rem; color:#5e7188;"><i class="far fa-calendar-alt"></i> 2026-1</span>
+      </div>
+    </div>
+    <div style="text-align:right; font-size:0.9rem; color:#5e7188;">
+      <i class="fas fa-user-graduate"></i> Básico
+    </div>
+  </div>
+
+  <div class="grid-datos">
+    <span class="item"><i class="fas fa-clock"></i> 4h/sem (2T+2P)</span>
+    <span class="item"><i class="fas fa-star"></i> 3 créditos</span>
+    <span class="item"><i class="fas fa-laptop"></i> Presencial</span>
+    <span class="item"><i class="fas fa-calendar-week"></i> 30 mar – 31 jul 2026</span>
+    <span class="item"><i class="fas fa-language"></i> Español</span>
+    <span class="item"><i class="fas fa-book"></i> Currículo 2021-2025 V.2.0</span>
+  </div>
+
+  <div class="docente">
+    <span><strong>Docente:</strong> APAZA TARQUI ALEJANDRO</span>
+    <span><strong>Categoría:</strong> Nombrado, Profesor principal</span>
+    <span><strong>Especialidad:</strong> Ing. Estadístico, Sistemas e Informática</span>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-align-left"></i> Sumilla</h2>
+    <p>Corresponde al área de estudios de especialidad, de naturaleza teórica-práctica, cuyo propósito es proporcionar la comprensión para implementar la organización de redes computacionales y los protocolos sobre los que se fundamenta su lógica de funcionamiento, con énfasis en la conectividad usando modernas tecnologías de transmisión de datos y comunicaciones.</p>
+    <p style="margin-top:0.5rem;"><strong>Contenido:</strong> 1. Fundamentos, arquitectura, tipos, medios y protocolos de comunicación de datos. 2. Fundamentos de servicios y seguridad con talleres de simulación.</p>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-user-check"></i> Perfil del Egresado &amp; Logro</h2>
+    <p><strong>Perfil:</strong> Capacidad de diseñar, configurar y administrar redes de telecomunicaciones de acuerdo a políticas de seguridad y estándares vigentes.</p>
+    <p style="margin-top:0.5rem;"><strong>Logro del curso:</strong> Comprende el fundamento de Arquitectura de Redes y Protocolos para diseño, configuración y administración de redes utilizando herramientas de simulación.</p>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-layer-group"></i> Unidades Didácticas</h2>
+
+    <div class="unidad">
+      <h3>Unidad I · Fundamentos de comunicación de datos y arquitectura de redes</h3>
+      <div class="meta-unidad">
+        <span><i class="far fa-calendar-alt"></i> 30 mar – 1 jun 2026 (36h)</span>
+        <span><i class="fas fa-video"></i> 2h virtuales</span>
+        <span><i class="fas fa-tasks"></i> 100% avance</span>
+      </div>
+      <p><strong>Logro:</strong> Determina las condiciones técnicas y arquitectónicas del funcionamiento de redes informáticas y teleprocesamiento.</p>
+      <p><strong>Contenido:</strong> Conceptos, elementos, dispositivos, arquitectura de redes, teleproceso, conmutación, modulación, multiplexación, tipos de redes (PAN, LAN, MAN, WAN, WLAN, GAN, CAN, SAN, internet, intranet, extranet), topologías físicas y lógicas, cableado estructurado, modelo OSI y TCP/IP, capa física, Ethernet (IEEE 802.x), capa de enlace, capa de red (IPv4), enrutamiento.</p>
+      <p style="margin-top:0.5rem;"><strong>Evidencias:</strong> Proyecto de conectividad, examen escrito (100%).</p>
+    </div>
+
+    <div class="unidad">
+      <h3>Unidad II · Diseño arquitectónico lógico y protocolos en capas OSI/TCP-IP</h3>
+      <div class="meta-unidad">
+        <span><i class="far fa-calendar-alt"></i> 1 jun – 27 jul 2026 (32h)</span>
+        <span><i class="fas fa-video"></i> 2h virtuales</span>
+        <span><i class="fas fa-tasks"></i> 100% avance</span>
+      </div>
+      <p><strong>Logro:</strong> Diseña arquitectónicamente a nivel lógico y protocolos en diferentes capas de OSI y TCP/IP.</p>
+      <p><strong>Contenido:</strong> Dispositivos Router, técnicas de enrutamiento, IPv6, configuración de IPs y subredes con Cisco Packet Tracer, capas de transporte, sesión, presentación y aplicación (TCP/UDP, NFS, NIS, DNS, LDAP, TELNET, FTP, RLOGIN, RIP, SNMP, etc.), enrutamiento estático y dinámico, redes inalámbricas (IEEE 802.11), redes satelitales, redes de fibra óptica, seguridad de redes.</p>
+      <p style="margin-top:0.5rem;"><strong>Evidencias:</strong> Proyecto configuración de servidores, examen escrito (100%).</p>
+    </div>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-chalkboard-teacher"></i> Estrategias Metodológicas</h2>
+    <div style="background:#f8fafd; padding:1rem 1.5rem; border-radius:1rem; border:1px solid #e9edf4; display:grid; gap:0.3rem;">
+      <p><strong>Enseñanza:</strong> Exposiciones, videoconferencias, foros, chat, diapositivas, videos, actividades asíncronas (aula virtual, tareas).</p>
+      <p><strong>Aprendizaje:</strong> Comprensión de textos, producción de folletos, trabajos grupales, debate, resolución de problemas, casos y proyectos.</p>
+      <p><strong>Investigación formativa:</strong> Investigación activa, seminarios, proyectos de semilleros.</p>
+      <p><strong>Responsabilidad social:</strong> Investigación diagnóstica de la problemática educativa en una IES estatal de Puno.</p>
+      <p><strong>Enseñanza virtual:</strong> Navegación web, Zoom, aulas virtuales UNAP, G-Suite, Moodle, redes sociales (YouTube, Facebook, WhatsApp).</p>
+    </div>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-clipboard-list"></i> Evaluación del Aprendizaje</h2>
+    <table class="tabla-eval">
+      <thead><tr><th>Unidad</th><th>Evidencias</th><th>Ponderación</th><th>Instrumentos</th></tr></thead>
+      <tbody>
+        <tr><td>I</td><td>Unidad I EV (100%)</td><td>50%</td><td>Prueba escrita, rúbrica</td></tr>
+        <tr><td>II</td><td>Unidad II EV (100%)</td><td>50%</td><td>Prueba escrita, rúbrica</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:0.8rem;"><strong>Fórmula:</strong> PPU1 = 40%(EV1) + 60%(EV2) · PPU2 = 30%(EV1) + 20%(EV2) + 50%(EV3) · PF = 50%(I UPP) + 50%(II UPP)</p>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-book"></i> Fuentes de Información</h2>
+    <div class="fuentes">
+      <div><span class="tipo">Básica:</span> Apaza T. (2002), Domingo (2013), Dordoigne (2015), Font et al. (2011), Herrera P. (2004), Pérez & Facchini (2017), Stallings (2004), Tanenbaum & Wetherall (2012).</div>
+      <div><span class="tipo">Complementaria:</span> Carballar (2005/2007), Huidobro M. (2001), Tomasi (2003).</div>
+      <div><span class="tipo">Electrónicas:</span> Liberatori (2018), GSMA (2017).</div>
+      <div><span class="tipo">Producción docente:</span> Apaza T. (2020) Redes y Teleproceso, 2da edición.</div>
+    </div>
+  </div>
+
+  <a href="../index.html" class="btn-volver"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+
+</div>
+</body>
+</html>
+```
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silabo · Gestión de Proyectos TICs · 2026-1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:'Inter',sans-serif;
+      background:#f0f4fc;
+      color:#1e293b;
+      padding:2rem 1rem;
+      display:flex;
+      justify-content:center;
+    }
+    .silabo {
+      max-width:1100px;
+      width:100%;
+      background:#fff;
+      border-radius:2rem;
+      box-shadow:0 25px 50px -12px rgba(0,0,0,0.15);
+      padding:2rem 2.5rem;
+      position:relative;
+    }
+    .silabo::before {
+      content:'';
+      position:absolute;
+      top:0; left:0; right:0;
+      height:6px;
+      background:linear-gradient(90deg,#0b2a4a,#3b6a9e,#8bb3ff);
+      border-radius:2rem 2rem 0 0;
+    }
+    .header-curso {
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      flex-wrap:wrap;
+      margin-bottom:2rem;
+      border-bottom:2px solid #e9edf4;
+      padding-bottom:1.5rem;
+    }
+    .header-curso h1 {
+      font-size:2rem;
+      font-weight:700;
+      color:#0b2a4a;
+      letter-spacing:-0.02em;
+    }
+    .header-curso h1 i { color:#3b6a9e; margin-right:0.5rem; }
+    .header-curso .codigo {
+      background:#e9f0fa;
+      padding:0.4rem 1.2rem;
+      border-radius:40px;
+      font-weight:600;
+      font-size:0.9rem;
+      color:#1a4c7a;
+    }
+    .badge-semestre {
+      display:inline-block;
+      background:#0b2a4a;
+      color:#fff;
+      padding:0.2rem 1rem;
+      border-radius:30px;
+      font-size:0.7rem;
+      font-weight:600;
+      letter-spacing:0.3px;
+      margin-left:0.5rem;
+    }
+    .grid-datos {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:0.8rem 1.5rem;
+      background:#f8fafd;
+      padding:1.2rem 1.5rem;
+      border-radius:1.2rem;
+      margin-bottom:2rem;
+      border:1px solid #e9edf4;
+    }
+    .grid-datos .item {
+      display:flex;
+      align-items:center;
+      gap:0.5rem;
+      font-size:0.9rem;
+    }
+    .grid-datos .item i { color:#3b6a9e; width:1.2rem; }
+    .docente {
+      background:#f8fafd;
+      border-radius:1rem;
+      padding:1rem 1.5rem;
+      margin:1.5rem 0;
+      border-left:4px solid #3b6a9e;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .docente strong { color:#0b2a4a; }
+    .seccion {
+      margin:2rem 0;
+    }
+    .seccion h2 {
+      font-size:1.4rem;
+      font-weight:600;
+      color:#0b2a4a;
+      border-bottom:2px solid #e2e9f2;
+      padding-bottom:0.4rem;
+      margin-bottom:1rem;
+      display:flex;
+      align-items:center;
+      gap:0.6rem;
+    }
+    .seccion h2 i { color:#3b6a9e; font-size:1.2rem; }
+    .seccion p, .seccion li { line-height:1.6; color:#1e293b; }
+    .seccion ul { padding-left:1.5rem; }
+    .unidad {
+      background:#f8fafd;
+      border-radius:1rem;
+      padding:1.2rem 1.5rem;
+      margin:1rem 0;
+      border:1px solid #e2e9f2;
+    }
+    .unidad h3 { color:#0b2a4a; margin-bottom:0.5rem; }
+    .unidad .meta-unidad {
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.5rem 1.5rem;
+      font-size:0.85rem;
+      color:#5e7188;
+      margin:0.5rem 0;
+    }
+    .tabla-eval {
+      width:100%;
+      border-collapse:collapse;
+      font-size:0.9rem;
+      margin:1rem 0;
+    }
+    .tabla-eval th {
+      background:#e9f0fa;
+      color:#0b2a4a;
+      font-weight:600;
+      padding:0.6rem 0.8rem;
+      text-align:left;
+    }
+    .tabla-eval td {
+      padding:0.6rem 0.8rem;
+      border-bottom:1px solid #e2e9f2;
+      vertical-align:top;
+    }
+    .tabla-eval tr:last-child td { border-bottom:none; }
+    .fuentes {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:1rem;
+      background:#f8fafd;
+      padding:1rem 1.5rem;
+      border-radius:1rem;
+      border:1px solid #e9edf4;
+    }
+    .fuentes .tipo { font-weight:600; color:#0b2a4a; }
+    .btn-volver {
+      display:inline-flex;
+      align-items:center;
+      gap:0.5rem;
+      background:#0b2a4a;
+      color:#fff;
+      padding:0.5rem 1.2rem;
+      border-radius:40px;
+      text-decoration:none;
+      font-weight:500;
+      font-size:0.9rem;
+      margin-top:1.5rem;
+      transition:0.2s;
+    }
+    .btn-volver:hover { background:#1a4c7a; transform:translateX(-3px); }
+    @media (max-width:640px) {
+      .silabo { padding:1rem; }
+      .header-curso h1 { font-size:1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="silabo">
+
+  <div class="header-curso">
+    <div>
+      <h1><i class="fas fa-diagram-project"></i>Gestión de Proyectos TICs</h1>
+      <div style="margin-top:0.3rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <span class="codigo">EST315</span>
+        <span class="badge-semestre">VI semestre</span>
+        <span style="font-size:0.85rem; color:#5e7188;"><i class="far fa-calendar-alt"></i> 2026-1</span>
+      </div>
+    </div>
+    <div style="text-align:right; font-size:0.9rem; color:#5e7188;">
+      <i class="fas fa-user-graduate"></i> Básico
+    </div>
+  </div>
+
+  <div class="grid-datos">
+    <span class="item"><i class="fas fa-clock"></i> 5h/sem (3T+2P)</span>
+    <span class="item"><i class="fas fa-star"></i> 4 créditos</span>
+    <span class="item"><i class="fas fa-laptop"></i> Presencial</span>
+    <span class="item"><i class="fas fa-calendar-week"></i> 30 mar – 31 jul 2026</span>
+    <span class="item"><i class="fas fa-language"></i> Español</span>
+    <span class="item"><i class="fas fa-book"></i> Currículo 2021-2025 V.2.0</span>
+  </div>
+
+  <div class="docente">
+    <span><strong>Docente:</strong> MELGAREJO BOLIVAR ROMEL PERCY</span>
+    <span><strong>Categoría:</strong> Contratado B2</span>
+    <span><strong>Especialidad:</strong> Ing. Estadístico e Informático, M.Sc. en Informática</span>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-align-left"></i> Sumilla</h2>
+    <p>El curso de Gestión de Proyectos TICs corresponde al área de estudios de especialidad, de naturaleza teórica-práctica, y tiene como propósito desarrollar competencias para la gestión integral de proyectos de tecnologías de la información y comunicación, abarcando desde la planificación, ejecución, monitoreo y cierre, con enfoque en metodologías ágiles y tradicionales.</p>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-user-check"></i> Perfil del Egresado &amp; Logro</h2>
+    <p><strong>Perfil:</strong> Capacidad para dirigir y gestionar proyectos TIC, aplicando estándares y buenas prácticas, asegurando la calidad y el cumplimiento de objetivos.</p>
+    <p style="margin-top:0.5rem;"><strong>Logro del curso:</strong> Gestiona proyectos de TICs aplicando metodologías, herramientas y técnicas que aseguren el éxito de los mismos, considerando aspectos técnicos, económicos y humanos.</p>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-layer-group"></i> Unidades Didácticas</h2>
+
+    <div class="unidad">
+      <h3>Unidad I · Fundamentos de la gestión de proyectos TIC</h3>
+      <div class="meta-unidad">
+        <span><i class="far fa-calendar-alt"></i> 30 mar – 1 jun 2026 (45h)</span>
+        <span><i class="fas fa-video"></i> 2h virtuales</span>
+        <span><i class="fas fa-tasks"></i> 50% avance</span>
+      </div>
+      <p><strong>Logro:</strong> Comprende los fundamentos de la gestión de proyectos, el ciclo de vida, los procesos y las áreas de conocimiento según estándares internacionales.</p>
+      <p><strong>Contenido:</strong> Introducción a la gestión de proyectos, ciclo de vida, procesos, áreas de conocimiento (integración, alcance, tiempo, costo, calidad, recursos, comunicaciones, riesgos, adquisiciones, stakeholders).</p>
+      <p style="margin-top:0.5rem;"><strong>Evidencias:</strong> Unidad I EV (100%).</p>
+    </div>
+
+    <div class="unidad">
+      <h3>Unidad II · Metodologías ágiles y herramientas para proyectos TIC</h3>
+      <div class="meta-unidad">
+        <span><i class="far fa-calendar-alt"></i> 1 jun – 31 jul 2026 (45h)</span>
+        <span><i class="fas fa-video"></i> 2h virtuales</span>
+        <span><i class="fas fa-tasks"></i> 100% avance</span>
+      </div>
+      <p><strong>Logro:</strong> Aplica metodologías ágiles (Scrum, Kanban) y herramientas tecnológicas para la planificación, seguimiento y control de proyectos TIC.</p>
+      <p><strong>Contenido:</strong> Metodologías ágiles, Scrum, Kanban, herramientas de gestión (Jira, Trello, MS Project), casos prácticos, simulación de proyectos.</p>
+      <p style="margin-top:0.5rem;"><strong>Evidencias:</strong> Unidad II EV (100%).</p>
+    </div>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-chalkboard-teacher"></i> Estrategias Metodológicas</h2>
+    <div style="background:#f8fafd; padding:1rem 1.5rem; border-radius:1rem; border:1px solid #e9edf4;">
+      <p><strong>Enseñanza:</strong> Exposiciones, casos de estudio, talleres prácticos, uso de herramientas de simulación.</p>
+      <p><strong>Aprendizaje:</strong> Aprendizaje basado en proyectos, resolución de casos, trabajo colaborativo.</p>
+      <p><strong>Investigación formativa:</strong> Análisis de proyectos reales, elaboración de planes de proyecto.</p>
+      <p><strong>Responsabilidad social:</strong> Proyectos vinculados a la comunidad y al sector público/privado.</p>
+      <p><strong>Enseñanza virtual:</strong> Aula virtual, videoconferencias, foros, materiales digitales.</p>
+    </div>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-clipboard-list"></i> Evaluación del Aprendizaje</h2>
+    <table class="tabla-eval">
+      <thead><tr><th>Unidad</th><th>Evidencias</th><th>Ponderación</th><th>Instrumentos</th></tr></thead>
+      <tbody>
+        <tr><td>I</td><td>Unidad I EV (100%)</td><td>50%</td><td>Lista de cotejo, rúbrica</td></tr>
+        <tr><td>II</td><td>Unidad II EV (100%)</td><td>50%</td><td>Lista de cotejo, rúbrica</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:0.8rem;"><strong>Fórmula:</strong> PPU1 = 50%(EV1) + 50%(EV2) · PPU2 = 50%(EV1) + 50%(EV2) · PF = 50%(I UPP) + 50%(II UPP)</p>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-book"></i> Fuentes de Información</h2>
+    <div class="fuentes">
+      <div><span class="tipo">Básica:</span> Project Management Institute (PMI) - Guía del PMBOK® (7ma edición), Pressman (2014) - Ingeniería de Software.</div>
+      <div><span class="tipo">Complementaria:</span> Kerzner (2017) - Project Management, Schwaber (2011) - Scrum.</div>
+      <div><span class="tipo">Electrónicas:</span> Plataformas de gestión de proyectos, artículos de investigación.</div>
+      <div><span class="tipo">Producción docente:</span> Guías de trabajo práctico, casos de estudio.</div>
+    </div>
+  </div>
+
+  <a href="../index.html" class="btn-volver"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+
+</div>
+</body>
+</html>
+```
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silabo · Modelos Lineales · 2026-1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:'Inter',sans-serif;
+      background:#f0f4fc;
+      color:#1e293b;
+      padding:2rem 1rem;
+      display:flex;
+      justify-content:center;
+    }
+    .silabo {
+      max-width:1100px;
+      width:100%;
+      background:#fff;
+      border-radius:2rem;
+      box-shadow:0 25px 50px -12px rgba(0,0,0,0.15);
+      padding:2rem 2.5rem;
+      position:relative;
+    }
+    .silabo::before {
+      content:'';
+      position:absolute;
+      top:0; left:0; right:0;
+      height:6px;
+      background:linear-gradient(90deg,#0b2a4a,#3b6a9e,#8bb3ff);
+      border-radius:2rem 2rem 0 0;
+    }
+    .header-curso {
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      flex-wrap:wrap;
+      margin-bottom:2rem;
+      border-bottom:2px solid #e9edf4;
+      padding-bottom:1.5rem;
+    }
+    .header-curso h1 {
+      font-size:2rem;
+      font-weight:700;
+      color:#0b2a4a;
+      letter-spacing:-0.02em;
+    }
+    .header-curso h1 i { color:#3b6a9e; margin-right:0.5rem; }
+    .header-curso .codigo {
+      background:#e9f0fa;
+      padding:0.4rem 1.2rem;
+      border-radius:40px;
+      font-weight:600;
+      font-size:0.9rem;
+      color:#1a4c7a;
+    }
+    .badge-semestre {
+      display:inline-block;
+      background:#0b2a4a;
+      color:#fff;
+      padding:0.2rem 1rem;
+      border-radius:30px;
+      font-size:0.7rem;
+      font-weight:600;
+      letter-spacing:0.3px;
+      margin-left:0.5rem;
+    }
+    .grid-datos {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:0.8rem 1.5rem;
+      background:#f8fafd;
+      padding:1.2rem 1.5rem;
+      border-radius:1.2rem;
+      margin-bottom:2rem;
+      border:1px solid #e9edf4;
+    }
+    .grid-datos .item {
+      display:flex;
+      align-items:center;
+      gap:0.5rem;
+      font-size:0.9rem;
+    }
+    .grid-datos .item i { color:#3b6a9e; width:1.2rem; }
+    .docente {
+      background:#f8fafd;
+      border-radius:1rem;
+      padding:1rem 1.5rem;
+      margin:1.5rem 0;
+      border-left:4px solid #3b6a9e;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .docente strong { color:#0b2a4a; }
+    .seccion {
+      margin:2rem 0;
+    }
+    .seccion h2 {
+      font-size:1.4rem;
+      font-weight:600;
+      color:#0b2a4a;
+      border-bottom:2px solid #e2e9f2;
+      padding-bottom:0.4rem;
+      margin-bottom:1rem;
+      display:flex;
+      align-items:center;
+      gap:0.6rem;
+    }
+    .seccion h2 i { color:#3b6a9e; font-size:1.2rem; }
+    .seccion p, .seccion li { line-height:1.6; color:#1e293b; }
+    .seccion ul { padding-left:1.5rem; }
+    .unidad {
+      background:#f8fafd;
+      border-radius:1rem;
+      padding:1.2rem 1.5rem;
+      margin:1rem 0;
+      border:1px solid #e2e9f2;
+    }
+    .unidad h3 { color:#0b2a4a; margin-bottom:0.5rem; }
+    .unidad .meta-unidad {
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.5rem 1.5rem;
+      font-size:0.85rem;
+      color:#5e7188;
+      margin:0.5rem 0;
+    }
+    .tabla-eval {
+      width:100%;
+      border-collapse:collapse;
+      font-size:0.9rem;
+      margin:1rem 0;
+    }
+    .tabla-eval th {
+      background:#e9f0fa;
+      color:#0b2a4a;
+      font-weight:600;
+      padding:0.6rem 0.8rem;
+      text-align:left;
+    }
+    .tabla-eval td {
+      padding:0.6rem 0.8rem;
+      border-bottom:1px solid #e2e9f2;
+      vertical-align:top;
+    }
+    .tabla-eval tr:last-child td { border-bottom:none; }
+    .fuentes {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:1rem;
+      background:#f8fafd;
+      padding:1rem 1.5rem;
+      border-radius:1rem;
+      border:1px solid #e9edf4;
+    }
+    .fuentes .tipo { font-weight:600; color:#0b2a4a; }
+    .btn-volver {
+      display:inline-flex;
+      align-items:center;
+      gap:0.5rem;
+      background:#0b2a4a;
+      color:#fff;
+      padding:0.5rem 1.2rem;
+      border-radius:40px;
+      text-decoration:none;
+      font-weight:500;
+      font-size:0.9rem;
+      margin-top:1.5rem;
+      transition:0.2s;
+    }
+    .btn-volver:hover { background:#1a4c7a; transform:translateX(-3px); }
+    @media (max-width:640px) {
+      .silabo { padding:1rem; }
+      .header-curso h1 { font-size:1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="silabo">
+
+  <div class="header-curso">
+    <div>
+      <h1><i class="fas fa-chart-line"></i>Modelos Lineales</h1>
+      <div style="margin-top:0.3rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <span class="codigo">EST210</span>
+        <span class="badge-semestre">VI semestre</span>
+        <span style="font-size:0.85rem; color:#5e7188;"><i class="far fa-calendar-alt"></i> 2026-1</span>
+      </div>
+    </div>
+    <div style="text-align:right; font-size:0.9rem; color:#5e7188;">
+      <i class="fas fa-user-graduate"></i> Avanzado
+    </div>
+  </div>
+
+  <div class="grid-datos">
+    <span class="item"><i class="fas fa-clock"></i> 6h/sem (4T+2P)</span>
+    <span class="item"><i class="fas fa-star"></i> 5 créditos</span>
+    <span class="item"><i class="fas fa-laptop"></i> Presencial</span>
+    <span class="item"><i class="fas fa-calendar-week"></i> 30 mar – 31 jul 2026</span>
+    <span class="item"><i class="fas fa-language"></i> Español</span>
+    <span class="item"><i class="fas fa-book"></i> Currículo 2021-2025 V.2.0</span>
+  </div>
+
+  <div class="docente">
+    <span><strong>Docente:</strong> MORILLOS VALDERRAMA SANTOS OCTAVIO</span>
+    <span><strong>Categoría:</strong> Nombrado - Principal D.E.</span>
+    <span><strong>Especialidad:</strong> Doctor en Estadística e Informática</span>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-align-left"></i> Sumilla</h2>
+    <p>El curso de Modelos Lineales pertenece al área de estudios de especialidad, de naturaleza teórico-práctica, y tiene como propósito contribuir en la solución de problemas de la vida real, formalizando y perfeccionando modelos matemáticos mediante el uso de la computación. La asignatura se divide en dos unidades: Distribución de formas cuadráticas y Modelos de rango completo; y Modelos de correlación y Modelos de rango no completo.</p>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-user-check"></i> Perfil del Egresado &amp; Logro</h2>
+    <p><strong>Perfil:</strong> Utiliza metodologías estadísticas y/o informáticas para promover la investigación científica, generando nuevos conocimientos con responsabilidad y ética.</p>
+    <p style="margin-top:0.5rem;"><strong>Logro del curso:</strong> Explica los fundamentos teóricos para el diseño y análisis de modelos de rango completo y no completo, contrastando pruebas de hipótesis para la toma de decisiones.</p>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-layer-group"></i> Unidades Didácticas</h2>
+
+    <div class="unidad">
+      <h3>Unidad I · Distribución de formas cuadráticas y modelos de rango completo</h3>
+      <div class="meta-unidad">
+        <span><i class="far fa-calendar-alt"></i> 30 mar – 1 jun 2026 (54h)</span>
+        <span><i class="fas fa-video"></i> 4h virtuales</span>
+        <span><i class="fas fa-tasks"></i> 50% avance</span>
+      </div>
+      <p><strong>Logro:</strong> Determina la distribución de formas cuadráticas de variables aleatorias y analiza modelos lineales de regresión aplicando inferencias en sus parámetros.</p>
+      <p><strong>Contenido:</strong> Introducción a formas cuadráticas, función de densidad multivariante, momentos, distribuciones F central y no central, distribuciones no centrales, independencia de formas cuadráticas, modelos de rango completo (estimación, tabla ANOVA, correlación múltiple), regresión polinomial, polinomios ortogonales, selección de variables.</p>
+      <p style="margin-top:0.5rem;"><strong>Evidencias:</strong> Trabajos (50%) · Examen escrito (50%)</p>
+    </div>
+
+    <div class="unidad">
+      <h3>Unidad II · Modelos de correlación y modelos de rango no completo</h3>
+      <div class="meta-unidad">
+        <span><i class="far fa-calendar-alt"></i> 1 jun – 31 jul 2026 (54h)</span>
+        <span><i class="fas fa-video"></i> 4h virtuales</span>
+        <span><i class="fas fa-tasks"></i> 100% avance</span>
+      </div>
+      <p><strong>Logro:</strong> Realiza pruebas de hipótesis para modelos de correlación parcial y múltiple, y distingue las diferencias entre modelos de rango completo y no completo.</p>
+      <p><strong>Contenido:</strong> Modelos de correlación, pruebas de hipótesis, intervalos de confianza, correlación parcial y múltiple, modelos de ANOVA (clasificaciones, efectos principales e interactivos, clasificaciones cruzadas y anidadas), matriz inversa generalizada, modelos de rango no completo, funciones estimables, hipótesis lineal general, contrastes independientes y ortogonales, modelos de clasificación a un criterio, modelos anidados y cruzados, modelos balanceados y componentes de varianza.</p>
+      <p style="margin-top:0.5rem;"><strong>Evidencias:</strong> Trabajos (50%) · Examen escrito (50%)</p>
+    </div>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-chalkboard-teacher"></i> Estrategias Metodológicas</h2>
+    <div style="background:#f8fafd; padding:1rem 1.5rem; border-radius:1rem; border:1px solid #e9edf4;">
+      <p><strong>Enseñanza:</strong> Sesiones de clase teóricas y prácticas, exposiciones del profesor y estudiantes.</p>
+      <p><strong>Aprendizaje:</strong> Asignación de problemas y ejercicios, dinámica de grupos, presentaciones.</p>
+      <p><strong>Investigación formativa:</strong> Trabajo de investigación relacionado con el curso al finalizar el semestre.</p>
+      <p><strong>Responsabilidad social:</strong> Investigación diagnóstica de la problemática educativa en una IES estatal de Puno.</p>
+      <p><strong>Enseñanza virtual:</strong> Uso de aulas virtuales (Classroom, Webex, Meet).</p>
+    </div>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-clipboard-list"></i> Evaluación del Aprendizaje</h2>
+    <table class="tabla-eval">
+      <thead><tr><th>Unidad</th><th>Evidencias</th><th>Ponderación</th><th>Instrumentos</th></tr></thead>
+      <tbody>
+        <tr><td>I</td><td>Trabajos (50%) · Examen escrito (50%)</td><td>50%</td><td>Rúbrica, lista de cotejo, examen</td></tr>
+        <tr><td>II</td><td>Trabajos (50%) · Examen escrito (50%)</td><td>50%</td><td>Rúbrica, lista de cotejo, examen</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:0.8rem;"><strong>Fórmula:</strong> PPU1 = 50%(EV1) + 50%(EV2) · PPU2 = 50%(EV1) + 50%(EV2) · PF = 50%(I UPP) + 50%(II UPP)</p>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-book"></i> Fuentes de Información</h2>
+    <div class="fuentes">
+      <div><span class="tipo">Básica:</span> Daniel (1991), Fahrmeir et al. (2013), Graybill (1961), Hair et al. (1999), Montgomery et al. (2006), Searle & Gruber (2017).</div>
+      <div><span class="tipo">Complementaria:</span> Neter et al. (1983), Rencher & Schaalje (2008).</div>
+      <div><span class="tipo">Electrónicas:</span> mascvuex.unex.es, recursos.salonesvirtuales.com</div>
+      <div><span class="tipo">Producción docente:</span> Guías de estudio y práctica.</div>
+    </div>
+  </div>
+
+  <a href="../index.html" class="btn-volver"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+
+</div>
+</body>
+</html>
+```
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silabo · Regresión Lineal y No Lineal · 2026-1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:'Inter',sans-serif;
+      background:#f0f4fc;
+      color:#1e293b;
+      padding:2rem 1rem;
+      display:flex;
+      justify-content:center;
+    }
+    .silabo {
+      max-width:1100px;
+      width:100%;
+      background:#fff;
+      border-radius:2rem;
+      box-shadow:0 25px 50px -12px rgba(0,0,0,0.15);
+      padding:2rem 2.5rem;
+      position:relative;
+    }
+    .silabo::before {
+      content:'';
+      position:absolute;
+      top:0; left:0; right:0;
+      height:6px;
+      background:linear-gradient(90deg,#0b2a4a,#3b6a9e,#8bb3ff);
+      border-radius:2rem 2rem 0 0;
+    }
+    .header-curso {
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      flex-wrap:wrap;
+      margin-bottom:2rem;
+      border-bottom:2px solid #e9edf4;
+      padding-bottom:1.5rem;
+    }
+    .header-curso h1 {
+      font-size:2rem;
+      font-weight:700;
+      color:#0b2a4a;
+      letter-spacing:-0.02em;
+    }
+    .header-curso h1 i { color:#3b6a9e; margin-right:0.5rem; }
+    .header-curso .codigo {
+      background:#e9f0fa;
+      padding:0.4rem 1.2rem;
+      border-radius:40px;
+      font-weight:600;
+      font-size:0.9rem;
+      color:#1a4c7a;
+    }
+    .badge-semestre {
+      display:inline-block;
+      background:#0b2a4a;
+      color:#fff;
+      padding:0.2rem 1rem;
+      border-radius:30px;
+      font-size:0.7rem;
+      font-weight:600;
+      letter-spacing:0.3px;
+      margin-left:0.5rem;
+    }
+    .grid-datos {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:0.8rem 1.5rem;
+      background:#f8fafd;
+      padding:1.2rem 1.5rem;
+      border-radius:1.2rem;
+      margin-bottom:2rem;
+      border:1px solid #e9edf4;
+    }
+    .grid-datos .item {
+      display:flex;
+      align-items:center;
+      gap:0.5rem;
+      font-size:0.9rem;
+    }
+    .grid-datos .item i { color:#3b6a9e; width:1.2rem; }
+    .docente {
+      background:#f8fafd;
+      border-radius:1rem;
+      padding:1rem 1.5rem;
+      margin:1.5rem 0;
+      border-left:4px solid #3b6a9e;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .docente strong { color:#0b2a4a; }
+    .seccion {
+      margin:2rem 0;
+    }
+    .seccion h2 {
+      font-size:1.4rem;
+      font-weight:600;
+      color:#0b2a4a;
+      border-bottom:2px solid #e2e9f2;
+      padding-bottom:0.4rem;
+      margin-bottom:1rem;
+      display:flex;
+      align-items:center;
+      gap:0.6rem;
+    }
+    .seccion h2 i { color:#3b6a9e; font-size:1.2rem; }
+    .seccion p, .seccion li { line-height:1.6; color:#1e293b; }
+    .seccion ul { padding-left:1.5rem; }
+    .unidad {
+      background:#f8fafd;
+      border-radius:1rem;
+      padding:1.2rem 1.5rem;
+      margin:1rem 0;
+      border:1px solid #e2e9f2;
+    }
+    .unidad h3 { color:#0b2a4a; margin-bottom:0.5rem; }
+    .unidad .meta-unidad {
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.5rem 1.5rem;
+      font-size:0.85rem;
+      color:#5e7188;
+      margin:0.5rem 0;
+    }
+    .tabla-eval {
+      width:100%;
+      border-collapse:collapse;
+      font-size:0.9rem;
+      margin:1rem 0;
+    }
+    .tabla-eval th {
+      background:#e9f0fa;
+      color:#0b2a4a;
+      font-weight:600;
+      padding:0.6rem 0.8rem;
+      text-align:left;
+    }
+    .tabla-eval td {
+      padding:0.6rem 0.8rem;
+      border-bottom:1px solid #e2e9f2;
+      vertical-align:top;
+    }
+    .tabla-eval tr:last-child td { border-bottom:none; }
+    .fuentes {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:1rem;
+      background:#f8fafd;
+      padding:1rem 1.5rem;
+      border-radius:1rem;
+      border:1px solid #e9edf4;
+    }
+    .fuentes .tipo { font-weight:600; color:#0b2a4a; }
+    .btn-volver {
+      display:inline-flex;
+      align-items:center;
+      gap:0.5rem;
+      background:#0b2a4a;
+      color:#fff;
+      padding:0.5rem 1.2rem;
+      border-radius:40px;
+      text-decoration:none;
+      font-weight:500;
+      font-size:0.9rem;
+      margin-top:1.5rem;
+      transition:0.2s;
+    }
+    .btn-volver:hover { background:#1a4c7a; transform:translateX(-3px); }
+    @media (max-width:640px) {
+      .silabo { padding:1rem; }
+      .header-curso h1 { font-size:1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="silabo">
+
+  <div class="header-curso">
+    <div>
+      <h1><i class="fas fa-scatter-chart"></i>Regresión Lineal y No Lineal</h1>
+      <div style="margin-top:0.3rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <span class="codigo">EST209</span>
+        <span class="badge-semestre">VI semestre</span>
+        <span style="font-size:0.85rem; color:#5e7188;"><i class="far fa-calendar-alt"></i> 2026-1</span>
+      </div>
+    </div>
+    <div style="text-align:right; font-size:0.9rem; color:#5e7188;">
+      <i class="fas fa-user-graduate"></i> Intermedio
+    </div>
+  </div>
+
+  <div class="grid-datos">
+    <span class="item"><i class="fas fa-clock"></i> 5h/sem (3T+2P)</span>
+    <span class="item"><i class="fas fa-star"></i> 4 créditos</span>
+    <span class="item"><i class="fas fa-laptop"></i> Presencial</span>
+    <span class="item"><i class="fas fa-calendar-week"></i> 30 mar – 31 jul 2026</span>
+    <span class="item"><i class="fas fa-language"></i> Español</span>
+    <span class="item"><i class="fas fa-book"></i> Currículo 2021-2025 V.2.0</span>
+  </div>
+
+  <div class="docente">
+    <span><strong>Docente:</strong> VARGAS VALVERDE CONFESOR MILAN</span>
+    <span><strong>Categoría:</strong> Nombrado - Asociado T.C.</span>
+    <span><strong>Especialidad:</strong> Lic. Estadística, M.Sc. Estadística, Dr. Estadística e Informática</span>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-align-left"></i> Sumilla</h2>
+    <p>El curso de Regresión Lineal y No Lineal corresponde al área curricular de Estudios específicos, de naturaleza teórico-práctico, cuyo propósito es brindar metodologías estadísticas cuantitativas y cualitativas que permitan estimar modelos para explicar el comportamiento de una variable de interés usando software estadístico.</p>
+    <p style="margin-top:0.5rem;"><strong>Contenido:</strong> Unidad 1: Regresión Lineal Simple, Correlación lineal y Modelos curvilíneos. Unidad 2: Modelos múltiples, Modelos aditivos generalizados (GAM), Regresión Tobit (modelos lineales para datos censurados).</p>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-user-check"></i> Perfil del Egresado &amp; Logro</h2>
+    <p><strong>CE5.</strong> Utiliza metodologías estadísticas y/o informáticas para promover y desarrollar la investigación científica, generando nuevos conocimientos con responsabilidad y ética.</p>
+    <p style="margin-top:0.5rem;"><strong>Logro del curso:</strong> Usa técnicas de regresión lineal y no lineal para encontrar modelos y realizar pronósticos en trabajos de investigación.</p>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-layer-group"></i> Unidades Didácticas</h2>
+
+    <div class="unidad">
+      <h3>Unidad I · Modelos de regresión lineales</h3>
+      <div class="meta-unidad">
+        <span><i class="far fa-calendar-alt"></i> 30 mar – 25 may 2026 (40h)</span>
+        <span><i class="fas fa-video"></i> 0h virtuales</span>
+      </div>
+      <p><strong>Logro:</strong> Encuentra modelos de regresión lineales válidos que cumplan los supuestos del modelo.</p>
+      <p><strong>Contenido:</strong> Regresión, correlación, betas, error de estimación, pruebas de hipótesis, método de mínimos cuadrados, método de Doolittle Abreviado, modelo lineal simple, modelo cuadrático, modelo cúbico, modelo lineal múltiple (2, 3 y 4 variables), método matricial.</p>
+      <p style="margin-top:0.5rem;"><strong>Evidencias:</strong> Trabajos (50%) · Examen escrito (50%)</p>
+    </div>
+
+    <div class="unidad">
+      <h3>Unidad II · Modelos de regresión no lineales</h3>
+      <div class="meta-unidad">
+        <span><i class="far fa-calendar-alt"></i> 25 may – 27 jul 2026 (45h)</span>
+        <span><i class="fas fa-video"></i> 0h virtuales</span>
+      </div>
+      <p><strong>Logro:</strong> Encuentra modelos no lineales que rompen con las limitaciones de los modelos lineales.</p>
+      <p><strong>Contenido:</strong> Modelos curvilíneos, modelo compuesto, modelo logarítmico, modelo de crecimiento, modelo potencia, modelo exponencial, modelo logístico.</p>
+      <p style="margin-top:0.5rem;"><strong>Evidencias:</strong> Trabajos (50%) · Examen escrito (50%)</p>
+    </div>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-chalkboard-teacher"></i> Estrategias Metodológicas</h2>
+    <div style="background:#f8fafd; padding:1rem 1.5rem; border-radius:1rem; border:1px solid #e9edf4;">
+      <p><strong>Enseñanza:</strong> Videoconferencias, video foro, chat, foros de análisis y discusión.</p>
+      <p><strong>Aprendizaje:</strong> Exposición, debate, solución de casos.</p>
+      <p><strong>Investigación formativa:</strong> Elaboración de trabajos de investigación descriptiva con procesamiento, pronósticos y selección del modelo óptimo.</p>
+      <p><strong>Responsabilidad social:</strong> Aplicación de conocimientos en ayuda interdisciplinaria para el avance científico.</p>
+      <p><strong>Enseñanza virtual:</strong> Uso de Classroom o Moodle para temas complementarios.</p>
+    </div>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-clipboard-list"></i> Evaluación del Aprendizaje</h2>
+    <table class="tabla-eval">
+      <thead><tr><th>Unidad</th><th>Evidencias</th><th>Ponderación</th><th>Instrumentos</th></tr></thead>
+      <tbody>
+        <tr><td>I</td><td>Trabajos (50%) · Examen escrito (50%)</td><td>50%</td><td>Pruebas escritas, lista de cotejo, rúbrica</td></tr>
+        <tr><td>II</td><td>Trabajos (50%) · Examen escrito (50%)</td><td>50%</td><td>Pruebas escritas, lista de cotejo, rúbrica</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:0.8rem;"><strong>Fórmula:</strong> PPU1 = 50%(EV1) + 50%(EV2) · PPU2 = 50%(EV1) + 50%(EV2) · PF = 50%(I UPP) + 50%(II UPP)</p>
+  </div>
+
+  <div class="seccion">
+    <h2><i class="fas fa-book"></i> Fuentes de Información</h2>
+    <div class="fuentes">
+      <div><span class="tipo">Básica:</span> Ostle (1979) Estadística Aplicada.</div>
+      <div><span class="tipo">Complementaria:</span> Córdova (2002/2009), D'Ancona (2004), Gujarati & Porter (2010), Pérez (2008), Spiegel & Stephens (2004).</div>
+      <div><span class="tipo">Electrónicas:</span> Ciencia de Datos (regresión Tobit), eco.uc3m.es, bioestadistica.uma.es</div>
+      <div><span class="tipo">Producción docente:</span> Azañero & Salas Pilco: "Diseños estadísticos para la investigación".</div>
+    </div>
+  </div>
+
+  <a href="../index.html" class="btn-volver"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+
+</div>
+</body>
+</html>
+```
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -114,10 +1944,7 @@
       gap:0.6rem;
     }
     .seccion h2 i { color:#3b6a9e; font-size:1.2rem; }
-    .seccion p, .seccion li {
-      line-height:1.6;
-      color:#1e293b;
-    }
+    .seccion p, .seccion li { line-height:1.6; color:#1e293b; }
     .seccion ul { padding-left:1.5rem; }
     .unidad {
       background:#f8fafd;
@@ -153,6 +1980,7 @@
       border-bottom:1px solid #e2e9f2;
       vertical-align:top;
     }
+    .tabla-eval tr:last-child td { border-bottom:none; }
     .fuentes {
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -187,7 +2015,6 @@
 <body>
 <div class="silabo">
 
-  <!-- ============ CABECERA ============ -->
   <div class="header-curso">
     <div>
       <h1><i class="fas fa-clock"></i>Series de Tiempo</h1>
@@ -202,7 +2029,6 @@
     </div>
   </div>
 
-  <!-- ============ DATOS CLAVE ============ -->
   <div class="grid-datos">
     <span class="item"><i class="fas fa-clock"></i> 5h/sem (3T+2P)</span>
     <span class="item"><i class="fas fa-star"></i> 4 créditos</span>
@@ -212,28 +2038,24 @@
     <span class="item"><i class="fas fa-book"></i> Currículo 2021-2025 V.2.0</span>
   </div>
 
-  <!-- ============ DOCENTE ============ -->
   <div class="docente">
     <span><strong>Docente:</strong> LLUEN VALLEJOS CESAR AUGUSTO</span>
     <span><strong>Categoría:</strong> Nombrado, Principal a D.E.</span>
     <span><strong>Especialidad:</strong> Lic. en Estadística</span>
   </div>
 
-  <!-- ============ SUMILLA ============ -->
   <div class="seccion">
     <h2><i class="fas fa-align-left"></i> Sumilla</h2>
     <p>El curso de Series de Tiempo corresponde al área de estudios de especialidad, de naturaleza teórica-práctica, y tiene como propósito desarrollar habilidades y destrezas para obtener modelos univariantes orientados a la toma de decisiones.</p>
     <p style="margin-top:0.5rem;"><strong>Organización:</strong> Primera Unidad: Métodos de suavizamiento, técnicas de descomposición, modelos lineales estacionarios AR, MA, ARMA y no estacionarios (ARIMA). Segunda Unidad: Modelos estacionales SAR, SMA, SARMA y SARIMA, modelos heterocedásticos (ARCH, GARCH), modelos multivariantes y redes neuronales.</p>
   </div>
 
-  <!-- ============ PERFIL / LOGRO ============ -->
   <div class="seccion">
     <h2><i class="fas fa-user-check"></i> Perfil del Egresado &amp; Logro</h2>
     <p><strong>Perfil:</strong> Produce pronósticos para tomar decisiones que resuelvan problemas de la realidad en investigación.</p>
     <p style="margin-top:0.5rem;"><strong>Logro del curso:</strong> Demuestra una actitud responsable y ética en la producción de pronósticos para la toma de decisiones.</p>
   </div>
 
-  <!-- ============ UNIDADES ============ -->
   <div class="seccion">
     <h2><i class="fas fa-layer-group"></i> Unidades Didácticas</h2>
 
@@ -262,7 +2084,6 @@
     </div>
   </div>
 
-  <!-- ============ ESTRATEGIAS ============ -->
   <div class="seccion">
     <h2><i class="fas fa-chalkboard-teacher"></i> Estrategias Metodológicas</h2>
     <div style="background:#f8fafd; padding:1rem 1.5rem; border-radius:1rem; border:1px solid #e9edf4;">
@@ -274,7 +2095,6 @@
     </div>
   </div>
 
-  <!-- ============ EVALUACIÓN ============ -->
   <div class="seccion">
     <h2><i class="fas fa-clipboard-list"></i> Evaluación del Aprendizaje</h2>
     <table class="tabla-eval">
@@ -287,7 +2107,6 @@
     <p style="margin-top:0.8rem;"><strong>Fórmula:</strong> PPU1 = 50%(EV1) + 50%(EV2) · PPU2 = 50%(EV1) + 50%(EV2) · PF = 50%(I UPP) + 50%(II UPP)</p>
   </div>
 
-  <!-- ============ FUENTES ============ -->
   <div class="seccion">
     <h2><i class="fas fa-book"></i> Fuentes de Información</h2>
     <div class="fuentes">
@@ -298,8 +2117,9 @@
     </div>
   </div>
 
-  <a href="semestre%20VI/SERIES-DE-TIEMPO.html" class="btn-volver"><i class="fas fa-arrow-left"></i> Volver al curso</a>
+  <a href="../index.html" class="btn-volver"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
 
 </div>
 </body>
 </html>
+```
