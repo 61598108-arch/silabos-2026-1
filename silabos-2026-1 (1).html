@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sílabos 2026-I · Ingeniería Estadística e Informática</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#101b2d;
+    --paper:#f6f3ec;
+    --paper-raised:#fffdf9;
+    --rule:#d8d2c2;
+    --blue:#2b4d73;
+    --blue-deep:#182f4a;
+    --gold:#a9812f;
+    --muted:#6b6558;
+    --text:#2a2a26;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-font-smoothing:antialiased;}
+  body{
+    background:var(--paper);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:5rem 1.5rem 4rem;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(16,27,45,0.05) 1px, transparent 1px);
+    background-size:22px 22px;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  /* Marca de agua institucional: el escudo EPIS, grande y muy tenue,
+     fijo detrás de todo el contenido para no interferir con la lectura */
+  .watermark{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:min(70vw, 900px);
+    height:auto;
+    opacity:0.07;
+    mix-blend-mode:multiply;
+    pointer-events:none;
+    z-index:0;
+    user-select:none;
+  }
+
+  .sheet{
+    width:100%;
+    max-width:900px;
+    position:relative;
+    z-index:1;
+  }
+
+  .brand-mark{
+    display:block;
+    width:76px;
+    height:auto;
+    margin:0 auto 1.1rem;
+  }
+
+  /* ---------- Masthead ---------- */
+  .masthead{
+    text-align:center;
+    padding-bottom:2.5rem;
+    margin-bottom:2.75rem;
+    border-bottom:1px solid var(--rule);
+    position:relative;
+  }
+  .masthead .kicker{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:1.1rem;
+  }
+  .masthead .kicker::before,
+  .masthead .kicker::after{
+    content:"—";
+    color:var(--rule);
+    margin:0 0.6em;
+  }
+  .masthead h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(2.6rem, 6vw, 3.6rem);
+    color:var(--ink);
+    letter-spacing:-0.01em;
+    line-height:1.05;
+  }
+  .masthead .faculty{
+    margin-top:0.9rem;
+    font-size:1.02rem;
+    color:var(--muted);
+  }
+  .masthead .faculty strong{
+    color:var(--blue-deep);
+    font-weight:600;
+  }
+  .masthead .meta-row{
+    display:flex;
+    justify-content:center;
+    gap:1.4rem;
+    margin-top:1.6rem;
+    flex-wrap:wrap;
+  }
+  .meta-pill{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.05em;
+    color:var(--blue-deep);
+    background:var(--paper-raised);
+    border:1px solid var(--rule);
+    padding:0.35rem 0.9rem;
+    border-radius:2px;
+  }
+
+  /* ---------- Index / catalog list ---------- */
+  .index-label{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.7rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:0.9rem;
+    padding:0 0.2rem;
+  }
+
+  .catalog{
+    display:flex;
+    flex-direction:column;
+  }
+
+  .entry{
+    display:grid;
+    grid-template-columns:3.4rem 1fr auto;
+    align-items:center;
+    gap:1.4rem;
+    padding:1.5rem 0.4rem;
+    border-bottom:1px solid var(--rule);
+    text-decoration:none;
+    color:inherit;
+    position:relative;
+    transition:background 0.2s ease, padding-left 0.2s ease;
+  }
+  .entry:first-child{
+    border-top:1px solid var(--rule);
+  }
+  .entry:hover{
+    background:var(--paper-raised);
+    padding-left:0.9rem;
+  }
+
+  .entry .num{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:1.6rem;
+    color:var(--rule);
+    transition:color 0.2s ease;
+  }
+  .entry:hover .num{
+    color:var(--gold);
+  }
+
+  .entry .body h2{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:1.28rem;
+    color:var(--ink);
+    letter-spacing:-0.005em;
+    margin-bottom:0.3rem;
+  }
+  .entry .body .code{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.7rem;
+    letter-spacing:0.09em;
+    color:var(--blue);
+    text-transform:uppercase;
+  }
+
+  .entry .go{
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    font-size:0.85rem;
+    font-weight:500;
+    color:var(--blue-deep);
+    white-space:nowrap;
+  }
+  .entry .go .arrow{
+    display:inline-block;
+    transition:transform 0.2s ease;
+  }
+  .entry:hover .go .arrow{
+    transform:translateX(4px);
+  }
+  .entry .go svg{
+    width:14px;
+    height:14px;
+    stroke:var(--blue-deep);
+  }
+
+  @media (max-width:600px){
+    .entry{
+      grid-template-columns:2.4rem 1fr;
+      row-gap:0.6rem;
+    }
+    .entry .go{
+      grid-column:1 / -1;
+      justify-content:flex-start;
+      padding-left:2.4rem;
+      color:var(--blue);
+    }
+    .entry .num{font-size:1.3rem;}
+    .entry .body h2{font-size:1.12rem;}
+  }
+
+  /* ---------- Footer ---------- */
+  .colophon{
+    margin-top:3.5rem;
+    padding-top:1.8rem;
+    border-top:1px solid var(--rule);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:0.8rem;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.7rem;
+    letter-spacing:0.04em;
+    color:var(--muted);
+  }
+  .colophon .seal{
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    color:var(--blue-deep);
+  }
+  .colophon .seal svg{width:16px;height:16px;stroke:var(--gold);}
+</style>
+</head>
+<body>
+
+<img src="logo-epis.png" alt="" class="watermark" />
+
+<div class="sheet">
+
+  <header class="masthead">
+    <img src="logo-epis.png" alt="Escudo EPIS - Ingeniería Estadística e Informática" class="brand-mark" />
+    <div class="kicker">Ciclo académico 2026-I</div>
+    <h1>Sílabos</h1>
+    <p class="faculty"><strong>Facultad de Ingeniería Estadística e Informática</strong> · Universidad Nacional del Altiplano</p>
+    <div class="meta-row">
+      <span class="meta-pill">VI Semestre</span>
+      <span class="meta-pill">6 cursos</span>
+      <span class="meta-pill">Puno, Perú</span>
+    </div>
+  </header>
+
+  <div class="index-label">
+    <span>Índice de cursos</span>
+    <span>Sílabo</span>
+  </div>
+
+  <nav class="catalog">
+
+    <a href="semestre%20VI/APRENDIZAJE-NO-SUPERVISADO.html" class="entry">
+      <span class="num">01</span>
+      <div class="body">
+        <h2>Aprendizaje No Supervisado</h2>
+        <span class="code">ANS · Estadística Computacional</span>
+      </div>
+      <span class="go">Ver sílabo <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></span>
+    </a>
+
+    <a href="semestre%20VI/ARQUITECTURA-DE-REDES-Y-PROTOCOLOS.html" class="entry">
+      <span class="num">02</span>
+      <div class="body">
+        <h2>Arquitectura de Redes y Protocolos</h2>
+        <span class="code">ARP · Infraestructura de Datos</span>
+      </div>
+      <span class="go">Ver sílabo <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></span>
+    </a>
+
+    <a href="semestre%20VI/GESTION-DE-PROYECTOS-TICS.html" class="entry">
+      <span class="num">03</span>
+      <div class="body">
+        <h2>Gestión de Proyectos TICs</h2>
+        <span class="code">GPT · Dirección de Proyectos</span>
+      </div>
+      <span class="go">Ver sílabo <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></span>
+    </a>
+
+    <a href="semestre%20VI/MODELOS-LINEALES.html" class="entry">
+      <span class="num">04</span>
+      <div class="body">
+        <h2>Modelos Lineales</h2>
+        <span class="code">ML · Estadística Matemática</span>
+      </div>
+      <span class="go">Ver sílabo <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></span>
+    </a>
+
+    <a href="semestre%20VI/REGRESION-LINEAL-Y-NO-LINEAL.html" class="entry">
+      <span class="num">05</span>
+      <div class="body">
+        <h2>Regresión Lineal y No Lineal</h2>
+        <span class="code">RLN · Análisis de Regresión</span>
+      </div>
+      <span class="go">Ver sílabo <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></span>
+    </a>
+
+    <a href="semestre%20VI/SERIES-DE-TIEMPO.html" class="entry">
+      <span class="num">06</span>
+      <div class="body">
+        <h2>Series de Tiempo</h2>
+        <span class="code">ST · Econometría Aplicada</span>
+      </div>
+      <span class="go">Ver sílabo <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></span>
+    </a>
+
+  </nav>
+
+  <footer class="colophon">
+    <span class="seal">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4Z"></path></svg>
+      EPIS · UNA Puno
+    </span>
+    <span>Sílabos actualizados — 2026-I</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
