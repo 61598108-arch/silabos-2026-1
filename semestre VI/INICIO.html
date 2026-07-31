@@ -1,356 +1,315 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Silabos 2026 - 1 | Ingeniería Estadística e Informática</title>
-    <!-- Google Fonts para tipografía moderna -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
-    <!-- Font Awesome 6 (gratuito) para íconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <style>
-        /* Reset y base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sílabos 2026-I · Ingeniería Estadística e Informática</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#101b2d;
+    --paper:#f6f3ec;
+    --paper-raised:#fffdf9;
+    --rule:#d8d2c2;
+    --blue:#2b4d73;
+    --blue-deep:#182f4a;
+    --gold:#a9812f;
+    --muted:#6b6558;
+    --text:#2a2a26;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-font-smoothing:antialiased;}
+  body{
+    background:var(--paper);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:5rem 1.5rem 4rem;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(16,27,45,0.05) 1px, transparent 1px);
+    background-size:22px 22px;
+  }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #f0f4fc;
-            color: #1e293b;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2rem 1rem;
-        }
+  .sheet{
+    width:100%;
+    max-width:900px;
+  }
 
-        /* Contenedor principal con sombra y bordes suaves */
-        .main-wrapper {
-            max-width: 1200px;
-            width: 100%;
-            background: #ffffff;
-            border-radius: 2.5rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-            overflow: hidden;
-            padding: 2rem 2rem 3rem;
-            transition: all 0.2s ease;
-        }
+  /* ---------- Masthead ---------- */
+  .masthead{
+    text-align:center;
+    padding-bottom:2.5rem;
+    margin-bottom:2.75rem;
+    border-bottom:1px solid var(--rule);
+    position:relative;
+  }
+  .masthead .kicker{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:1.1rem;
+  }
+  .masthead .kicker::before,
+  .masthead .kicker::after{
+    content:"—";
+    color:var(--rule);
+    margin:0 0.6em;
+  }
+  .masthead h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(2.6rem, 6vw, 3.6rem);
+    color:var(--ink);
+    letter-spacing:-0.01em;
+    line-height:1.05;
+  }
+  .masthead .faculty{
+    margin-top:0.9rem;
+    font-size:1.02rem;
+    color:var(--muted);
+  }
+  .masthead .faculty strong{
+    color:var(--blue-deep);
+    font-weight:600;
+  }
+  .masthead .meta-row{
+    display:flex;
+    justify-content:center;
+    gap:1.4rem;
+    margin-top:1.6rem;
+    flex-wrap:wrap;
+  }
+  .meta-pill{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.05em;
+    color:var(--blue-deep);
+    background:var(--paper-raised);
+    border:1px solid var(--rule);
+    padding:0.35rem 0.9rem;
+    border-radius:2px;
+  }
 
-        /* Header moderno con gradiente y detalles */
-        .header-modern {
-            background: linear-gradient(145deg, #0b2a4a, #1a3f66);
-            color: white;
-            padding: 2.5rem 2rem;
-            border-radius: 2rem 2rem 0 0;
-            margin: -2rem -2rem 2rem -2rem;
-            position: relative;
-            overflow: hidden;
-        }
+  /* ---------- Index / catalog list ---------- */
+  .index-label{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.7rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:0.9rem;
+    padding:0 0.2rem;
+  }
 
-        .header-modern::after {
-            content: '';
-            position: absolute;
-            top: -40%;
-            right: -10%;
-            width: 300px;
-            height: 300px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 50%;
-            pointer-events: none;
-        }
+  .catalog{
+    display:flex;
+    flex-direction:column;
+  }
 
-        .header-modern .badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(4px);
-            padding: 0.4rem 1.2rem;
-            border-radius: 40px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            color: #b6d4fe;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            margin-bottom: 0.75rem;
-        }
+  .entry{
+    display:grid;
+    grid-template-columns:3.4rem 1fr auto;
+    align-items:center;
+    gap:1.4rem;
+    padding:1.5rem 0.4rem;
+    border-bottom:1px solid var(--rule);
+    text-decoration:none;
+    color:inherit;
+    position:relative;
+    transition:background 0.2s ease, padding-left 0.2s ease;
+  }
+  .entry:first-child{
+    border-top:1px solid var(--rule);
+  }
+  .entry:hover{
+    background:var(--paper-raised);
+    padding-left:0.9rem;
+  }
 
-        .header-modern h1 {
-            font-weight: 700;
-            font-size: 2.6rem;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-            margin-bottom: 0.3rem;
-        }
+  .entry .num{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:1.6rem;
+    color:var(--rule);
+    transition:color 0.2s ease;
+  }
+  .entry:hover .num{
+    color:var(--gold);
+  }
 
-        .header-modern h1 i {
-            color: #6d9eff;
-            margin-right: 0.5rem;
-        }
+  .entry .body h2{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:1.28rem;
+    color:var(--ink);
+    letter-spacing:-0.005em;
+    margin-bottom:0.3rem;
+  }
+  .entry .body .code{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.7rem;
+    letter-spacing:0.09em;
+    color:var(--blue);
+    text-transform:uppercase;
+  }
 
-        .header-modern .subhead {
-            font-size: 1.1rem;
-            font-weight: 400;
-            opacity: 0.85;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
+  .entry .go{
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    font-size:0.85rem;
+    font-weight:500;
+    color:var(--blue-deep);
+    white-space:nowrap;
+  }
+  .entry .go .arrow{
+    display:inline-block;
+    transition:transform 0.2s ease;
+  }
+  .entry:hover .go .arrow{
+    transform:translateX(4px);
+  }
+  .entry .go svg{
+    width:14px;
+    height:14px;
+    stroke:var(--blue-deep);
+  }
 
-        .header-modern .subhead i {
-            font-size: 1rem;
-            color: #8bb3ff;
-        }
+  @media (max-width:600px){
+    .entry{
+      grid-template-columns:2.4rem 1fr;
+      row-gap:0.6rem;
+    }
+    .entry .go{
+      grid-column:1 / -1;
+      justify-content:flex-start;
+      padding-left:2.4rem;
+      color:var(--blue);
+    }
+    .entry .num{font-size:1.3rem;}
+    .entry .body h2{font-size:1.12rem;}
+  }
 
-        /* Grid de cursos */
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.8rem;
-            margin-top: 1.5rem;
-        }
-
-        /* Tarjeta curso */
-        .course-card {
-            background: #ffffff;
-            border-radius: 1.5rem;
-            padding: 1.8rem 1.5rem 2rem;
-            box-shadow: 0 4px 12px rgba(0, 20, 50, 0.06);
-            border: 1px solid #e9edf4;
-            transition: all 0.25s ease;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-
-        .course-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 30px -12px rgba(0, 40, 80, 0.12);
-            border-color: #cbd9eb;
-        }
-
-        .course-card .icon-wrapper {
-            width: 48px;
-            height: 48px;
-            background: #e9f0fa;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #1a4c7a;
-            font-size: 1.6rem;
-            margin-bottom: 1.2rem;
-            transition: 0.2s;
-        }
-
-        .course-card:hover .icon-wrapper {
-            background: #d4e2f7;
-            color: #0a2e50;
-        }
-
-        .course-card h2 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            line-height: 1.4;
-            color: #0b2a4a;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.01em;
-            flex: 1;
-        }
-
-        .course-card .btn-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.6rem;
-            background: #0b2a4a;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 60px;
-            font-weight: 500;
-            font-size: 0.95rem;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            border: 1px solid transparent;
-            margin-top: 0.5rem;
-            align-self: flex-start;
-        }
-
-        .course-card .btn-link i {
-            font-size: 0.9rem;
-            transition: transform 0.2s;
-        }
-
-        .course-card .btn-link:hover {
-            background: #1a4c7a;
-            box-shadow: 0 8px 18px -6px rgba(11, 42, 74, 0.3);
-            transform: scale(1.02);
-        }
-
-        .course-card .btn-link:hover i {
-            transform: translateX(4px);
-        }
-
-        /* Footer sutil */
-        .footer-note {
-            margin-top: 3rem;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #6b7f96;
-            border-top: 1px solid #e2e9f2;
-            padding-top: 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-note span i {
-            margin-right: 0.4rem;
-            color: #3b6a9e;
-        }
-
-        .footer-note .divider {
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: #bccbd9;
-        }
-
-        /* Ajustes responsivos */
-        @media (max-width: 640px) {
-            .main-wrapper {
-                padding: 1rem 1rem 2rem;
-                border-radius: 1.8rem;
-            }
-            .header-modern {
-                padding: 1.8rem 1.2rem;
-                margin: -1rem -1rem 1.8rem -1rem;
-                border-radius: 1.5rem 1.5rem 0 0;
-            }
-            .header-modern h1 {
-                font-size: 2rem;
-            }
-            .courses-grid {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
-            }
-            .course-card {
-                padding: 1.5rem;
-            }
-        }
-
-        @media (min-width: 641px) and (max-width: 900px) {
-            .courses-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* Efecto sutil en los íconos de materia (personalizado) */
-        .course-card[data-icon] .icon-wrapper i {
-            transition: transform 0.2s;
-        }
-        .course-card:hover .icon-wrapper i {
-            transform: scale(1.05);
-        }
-    </style>
+  /* ---------- Footer ---------- */
+  .colophon{
+    margin-top:3.5rem;
+    padding-top:1.8rem;
+    border-top:1px solid var(--rule);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:0.8rem;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.7rem;
+    letter-spacing:0.04em;
+    color:var(--muted);
+  }
+  .colophon .seal{
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    color:var(--blue-deep);
+  }
+  .colophon .seal svg{width:16px;height:16px;stroke:var(--gold);}
+</style>
 </head>
 <body>
 
-<div class="main-wrapper">
+<div class="sheet">
 
-    <!-- HEADER mejorado -->
-    <header class="header-modern">
-        <div class="badge">
-            <i class="fas fa-calendar-alt" style="margin-right: 6px;"></i> Ciclo 2026 - 1
-        </div>
-        <h1>
-            <i class="fas fa-graduation-cap"></i> Silabos
-        </h1>
-        <div class="subhead">
-            <i class="fas fa-chart-bar"></i>
-            <span>Ingeniería Estadística e Informática</span>
-            <span style="opacity:0.5; margin:0 6px;">|</span>
-            <i class="fas fa-users"></i>
-            <span>VI Semestre</span>
-        </div>
-    </header>
-
-    <!-- Grid de cursos -->
-    <div class="courses-grid">
-
-        <!-- Curso 1: Aprendizaje No Supervisado -->
-        <div class="course-card" data-icon="brain">
-            <div class="icon-wrapper"><i class="fas fa-robot"></i></div>
-            <h2>Aprendizaje No Supervisado</h2>
-            <a href="semestre%20VI/APRENDIZAJE-NO-SUPERVISADO.html" class="btn-link">
-                Ingresar curso <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
-
-        <!-- Curso 2: Arquitectura de Redes y Protocolos -->
-        <div class="course-card" data-icon="network">
-            <div class="icon-wrapper"><i class="fas fa-network-wired"></i></div>
-            <h2>Arquitectura de Redes y Protocolos</h2>
-            <a href="semestre%20VI/ARQUITECTURA-DE-REDES-Y-PROTOCOLOS.html" class="btn-link">
-                Ingresar curso <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
-
-        <!-- Curso 3: Gestión de Proyectos TICs -->
-        <div class="course-card" data-icon="project">
-            <div class="icon-wrapper"><i class="fas fa-diagram-project"></i></div>
-            <h2>Gestión de Proyectos TICs</h2>
-            <a href="semestre%20VI/GESTION-DE-PROYECTOS-TICS.html" class="btn-link">
-                Ingresar curso <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
-
-        <!-- Curso 4: Modelos Lineales -->
-        <div class="course-card" data-icon="linear">
-            <div class="icon-wrapper"><i class="fas fa-chart-line"></i></div>
-            <h2>Modelos Lineales</h2>
-            <a href="semestre%20VI/MODELOS-LINEALES.html" class="btn-link">
-                Ingresar curso <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
-
-        <!-- Curso 5: Regresión Lineal y No Lineal -->
-        <div class="course-card" data-icon="regression">
-            <div class="icon-wrapper"><i class="fas fa-scatter-chart"></i></div>
-            <h2>Regresión Lineal y No Lineal</h2>
-            <a href="semestre%20VI/REGRESION-LINEAL-Y-NO-LINEAL.html" class="btn-link">
-                Ingresar curso <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
-
-        <!-- Curso 6: Series de Tiempo -->
-        <div class="course-card" data-icon="time">
-            <div class="icon-wrapper"><i class="fas fa-clock"></i></div>
-            <h2>Series de Tiempo</h2>
-            <a href="semestre%20VI/SERIES-DE-TIEMPO.html" class="btn-link">
-                Ingresar curso <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
-
-    </div> <!-- end courses-grid -->
-
-    <!-- Footer con información adicional (estilo profesional) -->
-    <div class="footer-note">
-        <span><i class="fas fa-book-open"></i> 6 cursos disponibles</span>
-        <span class="divider"></span>
-        <span><i class="fas fa-file-alt"></i> Silabos actualizados</span>
-        <span class="divider"></span>
-        <span><i class="fas fa-university"></i> Universidad Nacional</span>
+  <header class="masthead">
+    <div class="kicker">Ciclo académico 2026-I</div>
+    <h1>Sílabos</h1>
+    <p class="faculty"><strong>Facultad de Ingeniería Estadística e Informática</strong> · Universidad Nacional del Altiplano</p>
+    <div class="meta-row">
+      <span class="meta-pill">VI Semestre</span>
+      <span class="meta-pill">6 cursos</span>
+      <span class="meta-pill">Puno, Perú</span>
     </div>
+  </header>
 
-</div> <!-- end main-wrapper -->
+  <div class="index-label">
+    <span>Índice de cursos</span>
+    <span>Sílabo</span>
+  </div>
+
+  <nav class="catalog">
+
+    <a href="semestre%20VI/APRENDIZAJE-NO-SUPERVISADO.html" class="entry">
+      <span class="num">01</span>
+      <div class="body">
+        <h2>Aprendizaje No Supervisado</h2>
+        <span class="code">ANS · Estadística Computacional</span>
+      </div>
+      <span class="go">Ver sílabo <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></span>
+    </a>
+
+    <a href="semestre%20VI/ARQUITECTURA-DE-REDES-Y-PROTOCOLOS.html" class="entry">
+      <span class="num">02</span>
+      <div class="body">
+        <h2>Arquitectura de Redes y Protocolos</h2>
+        <span class="code">ARP · Infraestructura de Datos</span>
+      </div>
+      <span class="go">Ver sílabo <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></span>
+    </a>
+
+    <a href="semestre%20VI/GESTION-DE-PROYECTOS-TICS.html" class="entry">
+      <span class="num">03</span>
+      <div class="body">
+        <h2>Gestión de Proyectos TICs</h2>
+        <span class="code">GPT · Dirección de Proyectos</span>
+      </div>
+      <span class="go">Ver sílabo <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></span>
+    </a>
+
+    <a href="semestre%20VI/MODELOS-LINEALES.html" class="entry">
+      <span class="num">04</span>
+      <div class="body">
+        <h2>Modelos Lineales</h2>
+        <span class="code">ML · Estadística Matemática</span>
+      </div>
+      <span class="go">Ver sílabo <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></span>
+    </a>
+
+    <a href="semestre%20VI/REGRESION-LINEAL-Y-NO-LINEAL.html" class="entry">
+      <span class="num">05</span>
+      <div class="body">
+        <h2>Regresión Lineal y No Lineal</h2>
+        <span class="code">RLN · Análisis de Regresión</span>
+      </div>
+      <span class="go">Ver sílabo <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></span>
+    </a>
+
+    <a href="semestre%20VI/SERIES-DE-TIEMPO.html" class="entry">
+      <span class="num">06</span>
+      <div class="body">
+        <h2>Series de Tiempo</h2>
+        <span class="code">ST · Econometría Aplicada</span>
+      </div>
+      <span class="go">Ver sílabo <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></span>
+    </a>
+
+  </nav>
+
+  <footer class="colophon">
+    <span class="seal">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4Z"></path></svg>
+      EPIS · UNA Puno
+    </span>
+    <span>Sílabos actualizados — 2026-I</span>
+  </footer>
+
+</div>
 
 </body>
 </html>
