@@ -114,10 +114,7 @@
       gap:0.6rem;
     }
     .seccion h2 i { color:#3b6a9e; font-size:1.2rem; }
-    .seccion p, .seccion li {
-      line-height:1.6;
-      color:#1e293b;
-    }
+    .seccion p, .seccion li { line-height:1.6; color:#1e293b; }
     .seccion ul { padding-left:1.5rem; }
     .unidad {
       background:#f8fafd;
@@ -153,6 +150,7 @@
       border-bottom:1px solid #e2e9f2;
       vertical-align:top;
     }
+    .tabla-eval tr:last-child td { border-bottom:none; }
     .fuentes {
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -187,7 +185,6 @@
 <body>
 <div class="silabo">
 
-  <!-- ============ CABECERA ============ -->
   <div class="header-curso">
     <div>
       <h1><i class="fas fa-scatter-chart"></i>Regresión Lineal y No Lineal</h1>
@@ -202,7 +199,6 @@
     </div>
   </div>
 
-  <!-- ============ DATOS CLAVE ============ -->
   <div class="grid-datos">
     <span class="item"><i class="fas fa-clock"></i> 5h/sem (3T+2P)</span>
     <span class="item"><i class="fas fa-star"></i> 4 créditos</span>
@@ -212,28 +208,24 @@
     <span class="item"><i class="fas fa-book"></i> Currículo 2021-2025 V.2.0</span>
   </div>
 
-  <!-- ============ DOCENTE ============ -->
   <div class="docente">
     <span><strong>Docente:</strong> VARGAS VALVERDE CONFESOR MILAN</span>
     <span><strong>Categoría:</strong> Nombrado - Asociado T.C.</span>
     <span><strong>Especialidad:</strong> Lic. Estadística, M.Sc. Estadística, Dr. Estadística e Informática</span>
   </div>
 
-  <!-- ============ SUMILLA ============ -->
   <div class="seccion">
     <h2><i class="fas fa-align-left"></i> Sumilla</h2>
     <p>El curso de Regresión Lineal y No Lineal corresponde al área curricular de Estudios específicos, de naturaleza teórico-práctico, cuyo propósito es brindar metodologías estadísticas cuantitativas y cualitativas que permitan estimar modelos para explicar el comportamiento de una variable de interés usando software estadístico.</p>
     <p style="margin-top:0.5rem;"><strong>Contenido:</strong> Unidad 1: Regresión Lineal Simple, Correlación lineal y Modelos curvilíneos. Unidad 2: Modelos múltiples, Modelos aditivos generalizados (GAM), Regresión Tobit (modelos lineales para datos censurados).</p>
   </div>
 
-  <!-- ============ PERFIL / LOGRO ============ -->
   <div class="seccion">
     <h2><i class="fas fa-user-check"></i> Perfil del Egresado &amp; Logro</h2>
     <p><strong>CE5.</strong> Utiliza metodologías estadísticas y/o informáticas para promover y desarrollar la investigación científica, generando nuevos conocimientos con responsabilidad y ética.</p>
     <p style="margin-top:0.5rem;"><strong>Logro del curso:</strong> Usa técnicas de regresión lineal y no lineal para encontrar modelos y realizar pronósticos en trabajos de investigación.</p>
   </div>
 
-  <!-- ============ UNIDADES ============ -->
   <div class="seccion">
     <h2><i class="fas fa-layer-group"></i> Unidades Didácticas</h2>
 
@@ -242,7 +234,6 @@
       <div class="meta-unidad">
         <span><i class="far fa-calendar-alt"></i> 30 mar – 25 may 2026 (40h)</span>
         <span><i class="fas fa-video"></i> 0h virtuales</span>
-        <span><i class="fas fa-tasks"></i> —</span>
       </div>
       <p><strong>Logro:</strong> Encuentra modelos de regresión lineales válidos que cumplan los supuestos del modelo.</p>
       <p><strong>Contenido:</strong> Regresión, correlación, betas, error de estimación, pruebas de hipótesis, método de mínimos cuadrados, método de Doolittle Abreviado, modelo lineal simple, modelo cuadrático, modelo cúbico, modelo lineal múltiple (2, 3 y 4 variables), método matricial.</p>
@@ -254,7 +245,6 @@
       <div class="meta-unidad">
         <span><i class="far fa-calendar-alt"></i> 25 may – 27 jul 2026 (45h)</span>
         <span><i class="fas fa-video"></i> 0h virtuales</span>
-        <span><i class="fas fa-tasks"></i> —</span>
       </div>
       <p><strong>Logro:</strong> Encuentra modelos no lineales que rompen con las limitaciones de los modelos lineales.</p>
       <p><strong>Contenido:</strong> Modelos curvilíneos, modelo compuesto, modelo logarítmico, modelo de crecimiento, modelo potencia, modelo exponencial, modelo logístico.</p>
@@ -262,7 +252,6 @@
     </div>
   </div>
 
-  <!-- ============ ESTRATEGIAS ============ -->
   <div class="seccion">
     <h2><i class="fas fa-chalkboard-teacher"></i> Estrategias Metodológicas</h2>
     <div style="background:#f8fafd; padding:1rem 1.5rem; border-radius:1rem; border:1px solid #e9edf4;">
@@ -274,7 +263,6 @@
     </div>
   </div>
 
-  <!-- ============ EVALUACIÓN ============ -->
   <div class="seccion">
     <h2><i class="fas fa-clipboard-list"></i> Evaluación del Aprendizaje</h2>
     <table class="tabla-eval">
@@ -287,18 +275,17 @@
     <p style="margin-top:0.8rem;"><strong>Fórmula:</strong> PPU1 = 50%(EV1) + 50%(EV2) · PPU2 = 50%(EV1) + 50%(EV2) · PF = 50%(I UPP) + 50%(II UPP)</p>
   </div>
 
-  <!-- ============ FUENTES ============ -->
   <div class="seccion">
     <h2><i class="fas fa-book"></i> Fuentes de Información</h2>
     <div class="fuentes">
       <div><span class="tipo">Básica:</span> Ostle (1979) Estadística Aplicada.</div>
-      <div><span class="tipo">Complementaria:</span> Córdova (2002/2009), D’Ancona (2004), Gujarati & Porter (2010), Pérez (2008), Spiegel & Stephens (2004).</div>
+      <div><span class="tipo">Complementaria:</span> Córdova (2002/2009), D'Ancona (2004), Gujarati & Porter (2010), Pérez (2008), Spiegel & Stephens (2004).</div>
       <div><span class="tipo">Electrónicas:</span> Ciencia de Datos (regresión Tobit), eco.uc3m.es, bioestadistica.uma.es</div>
-      <div><span class="tipo">Producción docente:</span> Azañero & Salas Pilco: “Diseños estadísticos para la investigación”.</div>
+      <div><span class="tipo">Producción docente:</span> Azañero & Salas Pilco: "Diseños estadísticos para la investigación".</div>
     </div>
   </div>
 
-  <a href="semestre%20VI/REGRESION-LINEAL-Y-NO-LINEAL.html" class="btn-volver"><i class="fas fa-arrow-left"></i> Volver al curso</a>
+  <a href="../index.html" class="btn-volver"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
 
 </div>
 </body>
