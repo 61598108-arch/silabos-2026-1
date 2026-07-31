@@ -114,10 +114,7 @@
       gap:0.6rem;
     }
     .seccion h2 i { color:#3b6a9e; font-size:1.2rem; }
-    .seccion p, .seccion li {
-      line-height:1.6;
-      color:#1e293b;
-    }
+    .seccion p, .seccion li { line-height:1.6; color:#1e293b; }
     .seccion ul { padding-left:1.5rem; }
     .unidad {
       background:#f8fafd;
@@ -153,6 +150,7 @@
       border-bottom:1px solid #e2e9f2;
       vertical-align:top;
     }
+    .tabla-eval tr:last-child td { border-bottom:none; }
     .fuentes {
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -187,7 +185,6 @@
 <body>
 <div class="silabo">
 
-  <!-- ============ CABECERA ============ -->
   <div class="header-curso">
     <div>
       <h1><i class="fas fa-network-wired"></i>Arquitectura de Redes y Protocolos</h1>
@@ -202,7 +199,6 @@
     </div>
   </div>
 
-  <!-- ============ DATOS CLAVE ============ -->
   <div class="grid-datos">
     <span class="item"><i class="fas fa-clock"></i> 4h/sem (2T+2P)</span>
     <span class="item"><i class="fas fa-star"></i> 3 créditos</span>
@@ -212,32 +208,27 @@
     <span class="item"><i class="fas fa-book"></i> Currículo 2021-2025 V.2.0</span>
   </div>
 
-  <!-- ============ DOCENTE ============ -->
   <div class="docente">
     <span><strong>Docente:</strong> APAZA TARQUI ALEJANDRO</span>
     <span><strong>Categoría:</strong> Nombrado, Profesor principal</span>
     <span><strong>Especialidad:</strong> Ing. Estadístico, Sistemas e Informática</span>
   </div>
 
-  <!-- ============ SUMILLA ============ -->
   <div class="seccion">
     <h2><i class="fas fa-align-left"></i> Sumilla</h2>
     <p>Corresponde al área de estudios de especialidad, de naturaleza teórica-práctica, cuyo propósito es proporcionar la comprensión para implementar la organización de redes computacionales y los protocolos sobre los que se fundamenta su lógica de funcionamiento, con énfasis en la conectividad usando modernas tecnologías de transmisión de datos y comunicaciones.</p>
     <p style="margin-top:0.5rem;"><strong>Contenido:</strong> 1. Fundamentos, arquitectura, tipos, medios y protocolos de comunicación de datos. 2. Fundamentos de servicios y seguridad con talleres de simulación.</p>
   </div>
 
-  <!-- ============ PERFIL / LOGRO ============ -->
   <div class="seccion">
     <h2><i class="fas fa-user-check"></i> Perfil del Egresado &amp; Logro</h2>
     <p><strong>Perfil:</strong> Capacidad de diseñar, configurar y administrar redes de telecomunicaciones de acuerdo a políticas de seguridad y estándares vigentes.</p>
     <p style="margin-top:0.5rem;"><strong>Logro del curso:</strong> Comprende el fundamento de Arquitectura de Redes y Protocolos para diseño, configuración y administración de redes utilizando herramientas de simulación.</p>
   </div>
 
-  <!-- ============ UNIDADES ============ -->
   <div class="seccion">
     <h2><i class="fas fa-layer-group"></i> Unidades Didácticas</h2>
 
-    <!-- UNIDAD 1 -->
     <div class="unidad">
       <h3>Unidad I · Fundamentos de comunicación de datos y arquitectura de redes</h3>
       <div class="meta-unidad">
@@ -250,7 +241,6 @@
       <p style="margin-top:0.5rem;"><strong>Evidencias:</strong> Proyecto de conectividad, examen escrito (100%).</p>
     </div>
 
-    <!-- UNIDAD 2 -->
     <div class="unidad">
       <h3>Unidad II · Diseño arquitectónico lógico y protocolos en capas OSI/TCP-IP</h3>
       <div class="meta-unidad">
@@ -264,7 +254,6 @@
     </div>
   </div>
 
-  <!-- ============ ESTRATEGIAS ============ -->
   <div class="seccion">
     <h2><i class="fas fa-chalkboard-teacher"></i> Estrategias Metodológicas</h2>
     <div style="background:#f8fafd; padding:1rem 1.5rem; border-radius:1rem; border:1px solid #e9edf4; display:grid; gap:0.3rem;">
@@ -276,7 +265,6 @@
     </div>
   </div>
 
-  <!-- ============ EVALUACIÓN ============ -->
   <div class="seccion">
     <h2><i class="fas fa-clipboard-list"></i> Evaluación del Aprendizaje</h2>
     <table class="tabla-eval">
@@ -289,7 +277,6 @@
     <p style="margin-top:0.8rem;"><strong>Fórmula:</strong> PPU1 = 40%(EV1) + 60%(EV2) · PPU2 = 30%(EV1) + 20%(EV2) + 50%(EV3) · PF = 50%(I UPP) + 50%(II UPP)</p>
   </div>
 
-  <!-- ============ FUENTES ============ -->
   <div class="seccion">
     <h2><i class="fas fa-book"></i> Fuentes de Información</h2>
     <div class="fuentes">
@@ -300,7 +287,7 @@
     </div>
   </div>
 
-  <a href="semestre%20VI/ARQUITECTURA-DE-REDES-Y-PROTOCOLOS.html" class="btn-volver"><i class="fas fa-arrow-left"></i> Volver al curso</a>
+  <a href="../index.html" class="btn-volver"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
 
 </div>
 </body>
