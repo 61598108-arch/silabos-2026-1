@@ -1,45 +1,307 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arquitectura de Redes y Protocolos</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silabo · Arquitectura de Redes y Protocolos · 2026-1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:'Inter',sans-serif;
+      background:#f0f4fc;
+      color:#1e293b;
+      padding:2rem 1rem;
+      display:flex;
+      justify-content:center;
+    }
+    .silabo {
+      max-width:1100px;
+      width:100%;
+      background:#fff;
+      border-radius:2rem;
+      box-shadow:0 25px 50px -12px rgba(0,0,0,0.15);
+      padding:2rem 2.5rem;
+      position:relative;
+    }
+    .silabo::before {
+      content:'';
+      position:absolute;
+      top:0; left:0; right:0;
+      height:6px;
+      background:linear-gradient(90deg,#0b2a4a,#3b6a9e,#8bb3ff);
+      border-radius:2rem 2rem 0 0;
+    }
+    .header-curso {
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      flex-wrap:wrap;
+      margin-bottom:2rem;
+      border-bottom:2px solid #e9edf4;
+      padding-bottom:1.5rem;
+    }
+    .header-curso h1 {
+      font-size:2rem;
+      font-weight:700;
+      color:#0b2a4a;
+      letter-spacing:-0.02em;
+    }
+    .header-curso h1 i { color:#3b6a9e; margin-right:0.5rem; }
+    .header-curso .codigo {
+      background:#e9f0fa;
+      padding:0.4rem 1.2rem;
+      border-radius:40px;
+      font-weight:600;
+      font-size:0.9rem;
+      color:#1a4c7a;
+    }
+    .badge-semestre {
+      display:inline-block;
+      background:#0b2a4a;
+      color:#fff;
+      padding:0.2rem 1rem;
+      border-radius:30px;
+      font-size:0.7rem;
+      font-weight:600;
+      letter-spacing:0.3px;
+      margin-left:0.5rem;
+    }
+    .grid-datos {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:0.8rem 1.5rem;
+      background:#f8fafd;
+      padding:1.2rem 1.5rem;
+      border-radius:1.2rem;
+      margin-bottom:2rem;
+      border:1px solid #e9edf4;
+    }
+    .grid-datos .item {
+      display:flex;
+      align-items:center;
+      gap:0.5rem;
+      font-size:0.9rem;
+    }
+    .grid-datos .item i { color:#3b6a9e; width:1.2rem; }
+    .docente {
+      background:#f8fafd;
+      border-radius:1rem;
+      padding:1rem 1.5rem;
+      margin:1.5rem 0;
+      border-left:4px solid #3b6a9e;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .docente strong { color:#0b2a4a; }
+    .seccion {
+      margin:2rem 0;
+    }
+    .seccion h2 {
+      font-size:1.4rem;
+      font-weight:600;
+      color:#0b2a4a;
+      border-bottom:2px solid #e2e9f2;
+      padding-bottom:0.4rem;
+      margin-bottom:1rem;
+      display:flex;
+      align-items:center;
+      gap:0.6rem;
+    }
+    .seccion h2 i { color:#3b6a9e; font-size:1.2rem; }
+    .seccion p, .seccion li {
+      line-height:1.6;
+      color:#1e293b;
+    }
+    .seccion ul { padding-left:1.5rem; }
+    .unidad {
+      background:#f8fafd;
+      border-radius:1rem;
+      padding:1.2rem 1.5rem;
+      margin:1rem 0;
+      border:1px solid #e2e9f2;
+    }
+    .unidad h3 { color:#0b2a4a; margin-bottom:0.5rem; }
+    .unidad .meta-unidad {
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.5rem 1.5rem;
+      font-size:0.85rem;
+      color:#5e7188;
+      margin:0.5rem 0;
+    }
+    .tabla-eval {
+      width:100%;
+      border-collapse:collapse;
+      font-size:0.9rem;
+      margin:1rem 0;
+    }
+    .tabla-eval th {
+      background:#e9f0fa;
+      color:#0b2a4a;
+      font-weight:600;
+      padding:0.6rem 0.8rem;
+      text-align:left;
+    }
+    .tabla-eval td {
+      padding:0.6rem 0.8rem;
+      border-bottom:1px solid #e2e9f2;
+      vertical-align:top;
+    }
+    .fuentes {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:1rem;
+      background:#f8fafd;
+      padding:1rem 1.5rem;
+      border-radius:1rem;
+      border:1px solid #e9edf4;
+    }
+    .fuentes .tipo { font-weight:600; color:#0b2a4a; }
+    .btn-volver {
+      display:inline-flex;
+      align-items:center;
+      gap:0.5rem;
+      background:#0b2a4a;
+      color:#fff;
+      padding:0.5rem 1.2rem;
+      border-radius:40px;
+      text-decoration:none;
+      font-weight:500;
+      font-size:0.9rem;
+      margin-top:1.5rem;
+      transition:0.2s;
+    }
+    .btn-volver:hover { background:#1a4c7a; transform:translateX(-3px); }
+    @media (max-width:640px) {
+      .silabo { padding:1rem; }
+      .header-curso h1 { font-size:1.5rem; }
+    }
+  </style>
 </head>
-
 <body>
+<div class="silabo">
 
-    <h1>Arquitectura de Redes y Protocolos</h1>
+  <!-- ============ CABECERA ============ -->
+  <div class="header-curso">
+    <div>
+      <h1><i class="fas fa-network-wired"></i>Arquitectura de Redes y Protocolos</h1>
+      <div style="margin-top:0.3rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <span class="codigo">EST316</span>
+        <span class="badge-semestre">VI semestre</span>
+        <span style="font-size:0.85rem; color:#5e7188;"><i class="far fa-calendar-alt"></i> 2026-1</span>
+      </div>
+    </div>
+    <div style="text-align:right; font-size:0.9rem; color:#5e7188;">
+      <i class="fas fa-user-graduate"></i> Básico
+    </div>
+  </div>
 
-    <hr>
+  <!-- ============ DATOS CLAVE ============ -->
+  <div class="grid-datos">
+    <span class="item"><i class="fas fa-clock"></i> 4h/sem (2T+2P)</span>
+    <span class="item"><i class="fas fa-star"></i> 3 créditos</span>
+    <span class="item"><i class="fas fa-laptop"></i> Presencial</span>
+    <span class="item"><i class="fas fa-calendar-week"></i> 30 mar – 31 jul 2026</span>
+    <span class="item"><i class="fas fa-language"></i> Español</span>
+    <span class="item"><i class="fas fa-book"></i> Currículo 2021-2025 V.2.0</span>
+  </div>
 
-    <h2>Datos del estudiante</h2>
+  <!-- ============ DOCENTE ============ -->
+  <div class="docente">
+    <span><strong>Docente:</strong> APAZA TARQUI ALEJANDRO</span>
+    <span><strong>Categoría:</strong> Nombrado, Profesor principal</span>
+    <span><strong>Especialidad:</strong> Ing. Estadístico, Sistemas e Informática</span>
+  </div>
 
-    <p><strong>Nombre:</strong> Abran Franco Cosi Cosi</p>
+  <!-- ============ SUMILLA ============ -->
+  <div class="seccion">
+    <h2><i class="fas fa-align-left"></i> Sumilla</h2>
+    <p>Corresponde al área de estudios de especialidad, de naturaleza teórica-práctica, cuyo propósito es proporcionar la comprensión para implementar la organización de redes computacionales y los protocolos sobre los que se fundamenta su lógica de funcionamiento, con énfasis en la conectividad usando modernas tecnologías de transmisión de datos y comunicaciones.</p>
+    <p style="margin-top:0.5rem;"><strong>Contenido:</strong> 1. Fundamentos, arquitectura, tipos, medios y protocolos de comunicación de datos. 2. Fundamentos de servicios y seguridad con talleres de simulación.</p>
+  </div>
 
-    <p><strong>Carrera:</strong> Ingeniería Estadística e Informática</p>
+  <!-- ============ PERFIL / LOGRO ============ -->
+  <div class="seccion">
+    <h2><i class="fas fa-user-check"></i> Perfil del Egresado &amp; Logro</h2>
+    <p><strong>Perfil:</strong> Capacidad de diseñar, configurar y administrar redes de telecomunicaciones de acuerdo a políticas de seguridad y estándares vigentes.</p>
+    <p style="margin-top:0.5rem;"><strong>Logro del curso:</strong> Comprende el fundamento de Arquitectura de Redes y Protocolos para diseño, configuración y administración de redes utilizando herramientas de simulación.</p>
+  </div>
 
-    <p><strong>Semestre:</strong> VI</p>
+  <!-- ============ UNIDADES ============ -->
+  <div class="seccion">
+    <h2><i class="fas fa-layer-group"></i> Unidades Didácticas</h2>
 
+    <!-- UNIDAD 1 -->
+    <div class="unidad">
+      <h3>Unidad I · Fundamentos de comunicación de datos y arquitectura de redes</h3>
+      <div class="meta-unidad">
+        <span><i class="far fa-calendar-alt"></i> 30 mar – 1 jun 2026 (36h)</span>
+        <span><i class="fas fa-video"></i> 2h virtuales</span>
+        <span><i class="fas fa-tasks"></i> 100% avance</span>
+      </div>
+      <p><strong>Logro:</strong> Determina las condiciones técnicas y arquitectónicas del funcionamiento de redes informáticas y teleprocesamiento.</p>
+      <p><strong>Contenido:</strong> Conceptos, elementos, dispositivos, arquitectura de redes, teleproceso, conmutación, modulación, multiplexación, tipos de redes (PAN, LAN, MAN, WAN, WLAN, GAN, CAN, SAN, internet, intranet, extranet), topologías físicas y lógicas, cableado estructurado, modelo OSI y TCP/IP, capa física, Ethernet (IEEE 802.x), capa de enlace, capa de red (IPv4), enrutamiento.</p>
+      <p style="margin-top:0.5rem;"><strong>Evidencias:</strong> Proyecto de conectividad, examen escrito (100%).</p>
+    </div>
 
-    <h2>Descripción del curso</h2>
+    <!-- UNIDAD 2 -->
+    <div class="unidad">
+      <h3>Unidad II · Diseño arquitectónico lógico y protocolos en capas OSI/TCP-IP</h3>
+      <div class="meta-unidad">
+        <span><i class="far fa-calendar-alt"></i> 1 jun – 27 jul 2026 (32h)</span>
+        <span><i class="fas fa-video"></i> 2h virtuales</span>
+        <span><i class="fas fa-tasks"></i> 100% avance</span>
+      </div>
+      <p><strong>Logro:</strong> Diseña arquitectónicamente a nivel lógico y protocolos en diferentes capas de OSI y TCP/IP.</p>
+      <p><strong>Contenido:</strong> Dispositivos Router, técnicas de enrutamiento, IPv6, configuración de IPs y subredes con Cisco Packet Tracer, capas de transporte, sesión, presentación y aplicación (TCP/UDP, NFS, NIS, DNS, LDAP, TELNET, FTP, RLOGIN, RIP, SNMP, etc.), enrutamiento estático y dinámico, redes inalámbricas (IEEE 802.11), redes satelitales, redes de fibra óptica, seguridad de redes.</p>
+      <p style="margin-top:0.5rem;"><strong>Evidencias:</strong> Proyecto configuración de servidores, examen escrito (100%).</p>
+    </div>
+  </div>
 
-    <p>
-        En este espacio se almacenarán los códigos,
-        configuraciones, prácticas y proyectos desarrollados
-        durante el curso de Arquitectura de Redes y Protocolos.
-    </p>
+  <!-- ============ ESTRATEGIAS ============ -->
+  <div class="seccion">
+    <h2><i class="fas fa-chalkboard-teacher"></i> Estrategias Metodológicas</h2>
+    <div style="background:#f8fafd; padding:1rem 1.5rem; border-radius:1rem; border:1px solid #e9edf4; display:grid; gap:0.3rem;">
+      <p><strong>Enseñanza:</strong> Exposiciones, videoconferencias, foros, chat, diapositivas, videos, actividades asíncronas (aula virtual, tareas).</p>
+      <p><strong>Aprendizaje:</strong> Comprensión de textos, producción de folletos, trabajos grupales, debate, resolución de problemas, casos y proyectos.</p>
+      <p><strong>Investigación formativa:</strong> Investigación activa, seminarios, proyectos de semilleros.</p>
+      <p><strong>Responsabilidad social:</strong> Investigación diagnóstica de la problemática educativa en una IES estatal de Puno.</p>
+      <p><strong>Enseñanza virtual:</strong> Navegación web, Zoom, aulas virtuales UNAP, G-Suite, Moodle, redes sociales (YouTube, Facebook, WhatsApp).</p>
+    </div>
+  </div>
 
+  <!-- ============ EVALUACIÓN ============ -->
+  <div class="seccion">
+    <h2><i class="fas fa-clipboard-list"></i> Evaluación del Aprendizaje</h2>
+    <table class="tabla-eval">
+      <thead><tr><th>Unidad</th><th>Evidencias</th><th>Ponderación</th><th>Instrumentos</th></tr></thead>
+      <tbody>
+        <tr><td>I</td><td>Unidad I EV (100%)</td><td>50%</td><td>Prueba escrita, rúbrica</td></tr>
+        <tr><td>II</td><td>Unidad II EV (100%)</td><td>50%</td><td>Prueba escrita, rúbrica</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:0.8rem;"><strong>Fórmula:</strong> PPU1 = 40%(EV1) + 60%(EV2) · PPU2 = 30%(EV1) + 20%(EV2) + 50%(EV3) · PF = 50%(I UPP) + 50%(II UPP)</p>
+  </div>
 
-    <h2>Códigos</h2>
+  <!-- ============ FUENTES ============ -->
+  <div class="seccion">
+    <h2><i class="fas fa-book"></i> Fuentes de Información</h2>
+    <div class="fuentes">
+      <div><span class="tipo">Básica:</span> Apaza T. (2002), Domingo (2013), Dordoigne (2015), Font et al. (2011), Herrera P. (2004), Pérez & Facchini (2017), Stallings (2004), Tanenbaum & Wetherall (2012).</div>
+      <div><span class="tipo">Complementaria:</span> Carballar (2005/2007), Huidobro M. (2001), Tomasi (2003).</div>
+      <div><span class="tipo">Electrónicas:</span> Liberatori (2018), GSMA (2017).</div>
+      <div><span class="tipo">Producción docente:</span> Apaza T. (2020) Redes y Teleproceso, 2da edición.</div>
+    </div>
+  </div>
 
-    <p>
-        Aquí se agregarán configuraciones de redes,
-        protocolos, simulaciones y prácticas realizadas
-        durante el semestre.
-    </p>
+  <a href="semestre%20VI/ARQUITECTURA-DE-REDES-Y-PROTOCOLOS.html" class="btn-volver"><i class="fas fa-arrow-left"></i> Volver al curso</a>
 
-
+</div>
 </body>
-
 </html>
