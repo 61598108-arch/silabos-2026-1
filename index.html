@@ -1,167 +1,359 @@
+Aquí tienes el código HTML mejorado con una interfaz más profesional, moderna y visualmente atractiva, manteniendo todas las direcciones de los enlaces sin cambios.
+```html
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Silabos 2026 - 1 | Ingeniería Estadística e Informática</title>
+    <!-- Google Fonts para tipografía moderna -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <!-- Font Awesome 6 (gratuito) para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* Reset y base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f4fc;
+            color: #1e293b;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
 
-<title>Silabos 2026 - 1</title>
+        /* Contenedor principal con sombra y bordes suaves */
+        .main-wrapper {
+            max-width: 1200px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            padding: 2rem 2rem 3rem;
+            transition: all 0.2s ease;
+        }
 
-<style>
+        /* Header moderno con gradiente y detalles */
+        .header-modern {
+            background: linear-gradient(145deg, #0b2a4a, #1a3f66);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 2rem 2rem 0 0;
+            margin: -2rem -2rem 2rem -2rem;
+            position: relative;
+            overflow: hidden;
+        }
 
-body{
-    font-family:Arial;
-    background:#f4f6f9;
-    margin:0;
-}
+        .header-modern::after {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+            pointer-events: none;
+        }
 
-header{
-    background:#003366;
-    color:white;
-    text-align:center;
-    padding:30px;
-}
+        .header-modern .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(4px);
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #b6d4fe;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 0.75rem;
+        }
 
-.container{
-    width:90%;
-    max-width:1000px;
-    margin:auto;
-    padding:30px;
-}
+        .header-modern h1 {
+            font-weight: 700;
+            font-size: 2.6rem;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 0.3rem;
+        }
 
-.curso{
-    background:white;
-    padding:20px;
-    margin:20px;
-    border-radius:10px;
-}
+        .header-modern h1 i {
+            color: #6d9eff;
+            margin-right: 0.5rem;
+        }
 
-a{
-    display:inline-block;
-    background:#003366;
-    color:white;
-    padding:10px 20px;
-    text-decoration:none;
-    border-radius:5px;
-}
+        .header-modern .subhead {
+            font-size: 1.1rem;
+            font-weight: 400;
+            opacity: 0.85;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
 
-</style>
+        .header-modern .subhead i {
+            font-size: 1rem;
+            color: #8bb3ff;
+        }
 
+        /* Grid de cursos */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Tarjeta curso */
+        .course-card {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 1.8rem 1.5rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 20, 50, 0.06);
+            border: 1px solid #e9edf4;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .course-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0, 40, 80, 0.12);
+            border-color: #cbd9eb;
+        }
+
+        .course-card .icon-wrapper {
+            width: 48px;
+            height: 48px;
+            background: #e9f0fa;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a4c7a;
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+            transition: 0.2s;
+        }
+
+        .course-card:hover .icon-wrapper {
+            background: #d4e2f7;
+            color: #0a2e50;
+        }
+
+        .course-card h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.4;
+            color: #0b2a4a;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+            flex: 1;
+        }
+
+        .course-card .btn-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            background: #0b2a4a;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+            margin-top: 0.5rem;
+            align-self: flex-start;
+        }
+
+        .course-card .btn-link i {
+            font-size: 0.9rem;
+            transition: transform 0.2s;
+        }
+
+        .course-card .btn-link:hover {
+            background: #1a4c7a;
+            box-shadow: 0 8px 18px -6px rgba(11, 42, 74, 0.3);
+            transform: scale(1.02);
+        }
+
+        .course-card .btn-link:hover i {
+            transform: translateX(4px);
+        }
+
+        /* Footer sutil */
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6b7f96;
+            border-top: 1px solid #e2e9f2;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-note span i {
+            margin-right: 0.4rem;
+            color: #3b6a9e;
+        }
+
+        .footer-note .divider {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #bccbd9;
+        }
+
+        /* Ajustes responsivos */
+        @media (max-width: 640px) {
+            .main-wrapper {
+                padding: 1rem 1rem 2rem;
+                border-radius: 1.8rem;
+            }
+            .header-modern {
+                padding: 1.8rem 1.2rem;
+                margin: -1rem -1rem 1.8rem -1rem;
+                border-radius: 1.5rem 1.5rem 0 0;
+            }
+            .header-modern h1 {
+                font-size: 2rem;
+            }
+            .courses-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .course-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 900px) {
+            .courses-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Efecto sutil en los íconos de materia (personalizado) */
+        .course-card[data-icon] .icon-wrapper i {
+            transition: transform 0.2s;
+        }
+        .course-card:hover .icon-wrapper i {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
-
-
 <body>
 
+<div class="main-wrapper">
 
-<header>
+    <!-- HEADER mejorado -->
+    <header class="header-modern">
+        <div class="badge">
+            <i class="fas fa-calendar-alt" style="margin-right: 6px;"></i> Ciclo 2026 - 1
+        </div>
+        <h1>
+            <i class="fas fa-graduation-cap"></i> Silabos
+        </h1>
+        <div class="subhead">
+            <i class="fas fa-chart-bar"></i>
+            <span>Ingeniería Estadística e Informática</span>
+            <span style="opacity:0.5; margin:0 6px;">|</span>
+            <i class="fas fa-users"></i>
+            <span>VI Semestre</span>
+        </div>
+    </header>
 
-<h1>
-Silabos 2026 - 1
-</h1>
+    <!-- Grid de cursos -->
+    <div class="courses-grid">
 
-<p>
-Ingeniería Estadística e Informática
-</p>
+        <!-- Curso 1: Aprendizaje No Supervisado -->
+        <div class="course-card" data-icon="brain">
+            <div class="icon-wrapper"><i class="fas fa-robot"></i></div>
+            <h2>Aprendizaje No Supervisado</h2>
+            <a href="semestre%20VI/APRENDIZAJE-NO-SUPERVISADO.html" class="btn-link">
+                Ingresar curso <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
 
-</header>
+        <!-- Curso 2: Arquitectura de Redes y Protocolos -->
+        <div class="course-card" data-icon="network">
+            <div class="icon-wrapper"><i class="fas fa-network-wired"></i></div>
+            <h2>Arquitectura de Redes y Protocolos</h2>
+            <a href="semestre%20VI/ARQUITECTURA-DE-REDES-Y-PROTOCOLOS.html" class="btn-link">
+                Ingresar curso <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
 
+        <!-- Curso 3: Gestión de Proyectos TICs -->
+        <div class="course-card" data-icon="project">
+            <div class="icon-wrapper"><i class="fas fa-diagram-project"></i></div>
+            <h2>Gestión de Proyectos TICs</h2>
+            <a href="semestre%20VI/GESTION-DE-PROYECTOS-TICS.html" class="btn-link">
+                Ingresar curso <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
 
+        <!-- Curso 4: Modelos Lineales -->
+        <div class="course-card" data-icon="linear">
+            <div class="icon-wrapper"><i class="fas fa-chart-line"></i></div>
+            <h2>Modelos Lineales</h2>
+            <a href="semestre%20VI/MODELOS-LINEALES.html" class="btn-link">
+                Ingresar curso <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
 
+        <!-- Curso 5: Regresión Lineal y No Lineal -->
+        <div class="course-card" data-icon="regression">
+            <div class="icon-wrapper"><i class="fas fa-scatter-chart"></i></div>
+            <h2>Regresión Lineal y No Lineal</h2>
+            <a href="semestre%20VI/REGRESION-LINEAL-Y-NO-LINEAL.html" class="btn-link">
+                Ingresar curso <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
 
-<div class="container">
+        <!-- Curso 6: Series de Tiempo -->
+        <div class="course-card" data-icon="time">
+            <div class="icon-wrapper"><i class="fas fa-clock"></i></div>
+            <h2>Series de Tiempo</h2>
+            <a href="semestre%20VI/SERIES-DE-TIEMPO.html" class="btn-link">
+                Ingresar curso <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
 
+    </div> <!-- end courses-grid -->
 
-<div class="curso">
+    <!-- Footer con información adicional (estilo profesional) -->
+    <div class="footer-note">
+        <span><i class="fas fa-book-open"></i> 6 cursos disponibles</span>
+        <span class="divider"></span>
+        <span><i class="fas fa-file-alt"></i> Silabos actualizados</span>
+        <span class="divider"></span>
+        <span><i class="fas fa-university"></i> Universidad Nacional</span>
+    </div>
 
-<h2>
-Aprendizaje No Supervisado
-</h2>
-
-<a href="semestre%20VI/APRENDIZAJE-NO-SUPERVISADO.html">
-Ingresar curso
-</a>
-
-</div>
-
-
-
-<div class="curso">
-
-<h2>
-Arquitectura de Redes y Protocolos
-</h2>
-
-<a href="semestre%20VI/ARQUITECTURA-DE-REDES-Y-PROTOCOLOS.html">
-Ingresar curso
-</a>
-
-</div>
-
-
-
-
-<div class="curso">
-
-<h2>
-Gestión de Proyectos TICs
-</h2>
-
-<a href="semestre%20VI/GESTION-DE-PROYECTOS-TICS.html">
-Ingresar curso
-</a>
-
-</div>
-
-
-
-
-<div class="curso">
-
-<h2>
-Modelos Lineales
-</h2>
-
-<a href="semestre%20VI/MODELOS-LINEALES.html">
-Ingresar curso
-</a>
-
-</div>
-
-
-
-
-<div class="curso">
-
-<h2>
-Regresión Lineal y No Lineal
-</h2>
-
-<a href="semestre%20VI/REGRESION-LINEAL-Y-NO-LINEAL.html">
-Ingresar curso
-</a>
-
-</div>
-
-
-
-
-<div class="curso">
-
-<h2>
-Series de Tiempo
-</h2>
-
-<a href="semestre%20VI/SERIES-DE-TIEMPO.html">
-Ingresar curso
-</a>
-
-</div>
-
-
-</div>
-
+</div> <!-- end main-wrapper -->
 
 </body>
-
 </html>
+```
